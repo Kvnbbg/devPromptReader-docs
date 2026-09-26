@@ -10,7 +10,7 @@ Do not skip pages.
 
 ## Reading Order (Required Sequence)
 
-1. [00-Process-and-Reading-Protocol](docs/00-Process-and-Reading-Protocol.md) — Process rules and mandatory reading protocol  
+1. [00-Process-and-Reading-Protocol](docs/00-Process-and-Reading-Protocol.md)  
 2. [01-Objectives-and-Scope](docs/01-Objectives-and-Scope.md)  
 3. [02-Mathematical-Foundation-Upload](docs/02-Mathematical-Foundation-Upload.md)  
 4. [03-Architecture-and-CRUD](docs/03-Architecture-and-CRUD.md)  
@@ -18,15 +18,17 @@ Do not skip pages.
 6. [05-Retention-Layer-MMORPG](docs/05-Retention-Layer-MMORPG.md)  
 7. [05b-Skippable-Returning-Suggestions](docs/05b-Skippable-Returning-Suggestions.md)  
 8. [05c-Semantic-Versioning](docs/05c-Semantic-Versioning.md)  
-9. [06-Layout-Typography-Performance](docs/06-Layout-Typography-Performance.md)  
-10. [07-Integration-and-External-Links](docs/07-Integration-and-External-Links.md)  
-11. [08-Language-Register-and-Progression](docs/08-Language-Register-and-Progression.md)  
+9. [05d-Progression-Vectors](docs/05d-Progression-Vectors.md)  
+10. [05e-RSS-Feed-Parsing-and-Symbiosis](docs/05e-RSS-Feed-Parsing-and-Symbiosis.md)  
+11. [06-Layout-Typography-Performance](docs/06-Layout-Typography-Performance.md)  
+12. [07-Integration-and-External-Links](docs/07-Integration-and-External-Links.md)  
+13. [08-Language-Register-and-Progression](docs/08-Language-Register-and-Progression.md)  
 
 After completing the full sequence, implementation may commence under the constraints defined herein.
 
 ## Current Documentation Version
 
-**0.2.0** (MINOR: expansion of retention mechanics, addition of skippable suggestions with personalised notifications and secure external links, formal SemVer policy).
+**0.3.0** (MINOR: exploration of MMORPG progression vectors; investigation and formalisation of RSS/Atom feed parsing from home and mobile navigation; explicit symbiotic links to Money Quest and Math domains).
 
 ## Repository Purpose
 
@@ -37,6 +39,8 @@ It is intended to facilitate symbiotic integration with:
 - [techandstream.com/savoirs](https://techandstream.com/savoirs)
 - [techandstream.com/dev](https://techandstream.com/dev)
 - [techandstream.com/math](https://techandstream.com/math)
+- Money Quest (finance decision loops)
+- official public information sources
 
 and to serve as the living Game Design Document (GDD) foundation for the retention layer under the kvnbbg namespace.
 
