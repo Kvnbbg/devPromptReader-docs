@@ -37,5 +37,5 @@
 
 ---
 
-Previous: [05-Retention-Layer-MMORPG](05-Retention-Layer-MMORPG.md)  
+Previous: [05h-Functional-Component-Flow](05h-Functional-Component-Flow.md)  
 Next: [07-Integration-and-External-Links](07-Integration-and-External-Links.md)

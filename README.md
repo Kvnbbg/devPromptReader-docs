@@ -20,15 +20,18 @@ Do not skip pages.
 8. [05c-Semantic-Versioning](docs/05c-Semantic-Versioning.md)  
 9. [05d-Progression-Vectors](docs/05d-Progression-Vectors.md)  
 10. [05e-RSS-Feed-Parsing-and-Symbiosis](docs/05e-RSS-Feed-Parsing-and-Symbiosis.md)  
-11. [06-Layout-Typography-Performance](docs/06-Layout-Typography-Performance.md)  
-12. [07-Integration-and-External-Links](docs/07-Integration-and-External-Links.md)  
-13. [08-Language-Register-and-Progression](docs/08-Language-Register-and-Progression.md)  
+11. [05f-MMORPG-Economy-Systems](docs/05f-MMORPG-Economy-Systems.md)  
+12. [05g-RSS-Parsing-Implementation](docs/05g-RSS-Parsing-Implementation.md)  
+13. [05h-Functional-Component-Flow](docs/05h-Functional-Component-Flow.md)  
+14. [06-Layout-Typography-Performance](docs/06-Layout-Typography-Performance.md)  
+15. [07-Integration-and-External-Links](docs/07-Integration-and-External-Links.md)  
+16. [08-Language-Register-and-Progression](docs/08-Language-Register-and-Progression.md)  
 
 After completing the full sequence, implementation may commence under the constraints defined herein.
 
 ## Current Documentation Version
 
-**0.3.0** (MINOR: exploration of MMORPG progression vectors; investigation and formalisation of RSS/Atom feed parsing from home and mobile navigation; explicit symbiotic links to Money Quest and Math domains).
+**0.4.0** (MINOR: navigation-link repair; MMORPG economy systems; detailed lightweight secure RSS parsing implementation; complete functional component flow home → devPrompt → user_select → devPromptReader).
 
 ## Repository Purpose
 

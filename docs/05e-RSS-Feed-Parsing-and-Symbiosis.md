@@ -56,4 +56,4 @@ These linkages are additive and non-destructive. They do not alter the existing 
 ---
 
 Previous: [05d-Progression-Vectors](05d-Progression-Vectors.md)  
-Next: [06-Layout-Typography-Performance](06-Layout-Typography-Performance.md)
+Next: [05f-MMORPG-Economy-Systems](05f-MMORPG-Economy-Systems.md)
