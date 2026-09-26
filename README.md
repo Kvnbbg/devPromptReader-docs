@@ -16,11 +16,17 @@ Do not skip pages.
 4. [03-Architecture-and-CRUD](docs/03-Architecture-and-CRUD.md)  
 5. [04-Reader-Viewer-Features](docs/04-Reader-Viewer-Features.md)  
 6. [05-Retention-Layer-MMORPG](docs/05-Retention-Layer-MMORPG.md)  
-7. [06-Layout-Typography-Performance](docs/06-Layout-Typography-Performance.md)  
-8. [07-Integration-and-External-Links](docs/07-Integration-and-External-Links.md)  
-9. [08-Language-Register-and-Progression](docs/08-Language-Register-and-Progression.md)  
+7. [05b-Skippable-Returning-Suggestions](docs/05b-Skippable-Returning-Suggestions.md)  
+8. [05c-Semantic-Versioning](docs/05c-Semantic-Versioning.md)  
+9. [06-Layout-Typography-Performance](docs/06-Layout-Typography-Performance.md)  
+10. [07-Integration-and-External-Links](docs/07-Integration-and-External-Links.md)  
+11. [08-Language-Register-and-Progression](docs/08-Language-Register-and-Progression.md)  
 
 After completing the full sequence, implementation may commence under the constraints defined herein.
+
+## Current Documentation Version
+
+**0.2.0** (MINOR: expansion of retention mechanics, addition of skippable suggestions with personalised notifications and secure external links, formal SemVer policy).
 
 ## Repository Purpose
 
