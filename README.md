@@ -23,8 +23,8 @@ Do not skip pages.
 11. [05f-MMORPG-Economy-Systems](docs/05f-MMORPG-Economy-Systems.md)  
 12. [05g-RSS-Parsing-Implementation](docs/05g-RSS-Parsing-Implementation.md)  
 13. [05h-Functional-Component-Flow](docs/05h-Functional-Component-Flow.md)  
-14. [05i-Go-CLI-Alternative](docs/05i-Go-CLI-Alternative.md)  
-15. [05j-MMORPG-Game-Mechanics](docs/05j-MMORPG-Game-Mechanics.md)  
+14. [05i-Go-CLI-Alternative](docs/05i-Go-CLI-Alternative.md) — terminal binary **`devPromptReader`**  
+15. [05j-MMORPG-Game-Mechanics](docs/05j-MMORPG-Game-Mechanics.md) — including terminal-based mechanics  
 16. [05k-RSS-Parsing-Systems-Analysis](docs/05k-RSS-Parsing-Systems-Analysis.md)  
 17. [06-Layout-Typography-Performance](docs/06-Layout-Typography-Performance.md)  
 18. [07-Integration-and-External-Links](docs/07-Integration-and-External-Links.md)  
@@ -34,11 +34,11 @@ After completing the full sequence, implementation may commence under the constr
 
 ## Current Documentation Version
 
-**0.5.0** (MINOR: Go CLI alternative implementation; further MMORPG game-mechanics exploration; expanded RSS parsing systems analysis; navigation chain repaired and extended).
+**0.6.0** (MINOR: terminal CLI named `devPromptReader`; terminal-based MMORPG mechanics; refined RSS parsing systems analysis for browser and CLI paths).
 
 ## Repository Purpose
 
-This repository holds the authoritative, version-controlled design documentation for **devPromptReader**, a mobile-primary, offline-capable document reader-viewer with full CRUD, secure heavy-document upload, and progressive user retention mechanics.
+This repository holds the authoritative, version-controlled design documentation for **devPromptReader**, a mobile-primary, offline-capable document reader-viewer with full CRUD, secure heavy-document upload, progressive retention, and a symbiotic terminal CLI invoked as `devPromptReader`.
 
 It is intended to facilitate symbiotic integration with:
 
@@ -48,7 +48,7 @@ It is intended to facilitate symbiotic integration with:
 - Money Quest (finance decision loops)
 - official public information sources
 
-and to serve as the living Game Design Document (GDD) foundation for the retention layer under the kvnbbg namespace.
+and to serve as the living Game Design Document (GDD) foundation under the kvnbbg namespace.
 
 **No existing assets are to be destroyed or overwritten.** All work remains additive.
 

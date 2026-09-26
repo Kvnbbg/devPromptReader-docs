@@ -1,18 +1,37 @@
-# 05i — Alternative Implementation: Go CLI Version
+# 05i — Terminal CLI: Go Version of devPromptReader
+
+## Command Name and Accessibility
+
+The terminal realisation is installed and invoked as the single command:
+
+```text
+devPromptReader
+```
+
+After installation (for example via `go install` or a released binary placed on `PATH`), the user may type `devPromptReader` followed by subcommands. No other binary name is required for the core CLI surface.
 
 ## Purpose
 
-This page supplies an alternative, server-side or command-line oriented realisation of the feed-parsing and integrity-related portions of the design, expressed in Go. It is intended as a complementary path for offline tooling, CI checks, or a lightweight local CLI that can feed the same normalised item model used by the browser-based reader.
+Provide a symbiotic, offline-capable companion to the browser reader that:
 
-The Go path remains symbiotic: it does not replace the client-side reader; it may pre-process feeds or verify Merkle roots for heavy documents before they enter the local store.
+- fetches and normalises allow-listed RSS/Atom feeds;
+- lists, inspects, and optionally verifies local document metadata (including Merkle roots);
+- exposes progression-vector summaries stored in a local profile file;
+- never gates reading or upload behind network or account requirements.
 
-## Recommended Libraries
+The CLI does not replace the web reader; it complements it for terminal workflows, CI, and headless pre-processing.
 
-- Feed parsing: `github.com/mmcdole/gofeed` (universal RSS 2.0 / Atom 1.0 / JSON Feed support, resilient to imperfect feeds).
-- Alternative lighter option: `github.com/SlyMarbo/rss` for simpler fetch-and-update loops.
-- Cryptographic digests for the upload integrity model: standard library `crypto/sha256`.
+## Recommended Subcommands
 
-## Illustrative Go CLI Sketch
+| Subcommand | Role |
+|------------|------|
+| `devPromptReader feed [url]` | Fetch and print a bounded list of items from an allow-listed feed (default: home RSS). |
+| `devPromptReader docs list` | List locally registered documents and their integrity roots when present. |
+| `devPromptReader docs verify <path>` | Recompute SHA-256 / Merkle summary for a local file. |
+| `devPromptReader status` | Show local progression vectors and profile summary. |
+| `devPromptReader version` | Print CLI and documentation compatibility version. |
+
+## Illustrative Go Entry Point
 
 ```go
 package main
@@ -28,7 +47,7 @@ import (
 	"github.com/mmcdole/gofeed"
 )
 
-var allowedOrigins = map[string]struct{}{
+var allowedHosts = map[string]struct{}{
 	"www.techandstream.com": {},
 	"techandstream.com":     {},
 	"www.kevinmarville.com": {},
@@ -39,50 +58,71 @@ func originAllowed(raw string) bool {
 	if err != nil {
 		return false
 	}
-	_, ok := allowedOrigins[u.Hostname()]
+	_, ok := allowedHosts[u.Hostname()]
 	return ok
 }
 
-func main() {
-	if len(os.Args) < 2 {
-		log.Fatal("usage: devprompt-feed <feed-url>")
+func cmdFeed(args []string) {
+	feedURL := "https://www.techandstream.com/rss.xml"
+	if len(args) > 0 {
+		feedURL = args[0]
 	}
-	feedURL := os.Args[1]
 	if !originAllowed(feedURL) {
 		log.Fatal("origin not in allow-list")
 	}
-
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()
-
 	fp := gofeed.NewParser()
-	fp.UserAgent = "devPromptReader-cli/0.5"
+	fp.UserAgent = "devPromptReader/0.6"
 	feed, err := fp.ParseURLWithContext(feedURL, ctx)
 	if err != nil {
 		log.Fatal(err)
 	}
-
-	limit := 5
-	if len(feed.Items) < limit {
-		limit = len(feed.Items)
+	n := 5
+	if len(feed.Items) < n {
+		n = len(feed.Items)
 	}
-	for i := 0; i < limit; i++ {
+	for i := 0; i < n; i++ {
 		it := feed.Items[i]
-		fmt.Printf("- %s\n  %s\n  %s\n", it.Title, it.Link, it.Published)
+		fmt.Printf("%d. %s\n   %s\n", i+1, it.Title, it.Link)
+	}
+}
+
+func main() {
+	if len(os.Args) < 2 {
+		fmt.Println("usage: devPromptReader <feed|docs|status|version> ...")
+		os.Exit(1)
+	}
+	switch os.Args[1] {
+	case "feed":
+		cmdFeed(os.Args[2:])
+	case "version":
+		fmt.Println("devPromptReader 0.6.0 (docs 0.6.0)")
+	default:
+		fmt.Println("usage: devPromptReader <feed|docs|status|version> ...")
+		os.Exit(1)
 	}
 }
 ```
 
-## Security and Policy Alignment
+Build and install example:
 
-- Origin allow-list is enforced before any network request proceeds.
-- Request timeout bounds resource consumption.
-- No evaluation of remote content beyond structured feed fields.
-- Output is plain text or structured JSON suitable for piping into other tools or for seeding the client-side cache.
+```bash
+go build -o devPromptReader .
+# or
+go install  # produces $GOPATH/bin/devPromptReader when module main is named accordingly
+```
 
-## Integration with the True Loop
+## Security Alignment
 
-A CI job or local cron may invoke the CLI, write a bounded JSON snapshot of recent items, and place that snapshot where the browser reader can load it offline. The client still performs its own sanitisation and rendering under the layout constraints already defined.
+- Origin allow-list before network access.
+- Timeouts on all outbound requests.
+- No execution of remote content beyond structured feed fields.
+- Local document verification uses only standard cryptographic primitives (SHA-256).
+
+## Symbiosis
+
+CLI output (JSON or plain text) may seed the browser reader cache. The browser path remains the primary interactive reader; the CLI is the terminal counterpart accessible via the command `devPromptReader`.
 
 ---
 

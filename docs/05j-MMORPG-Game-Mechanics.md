@@ -1,47 +1,52 @@
-# 05j — Further Exploration of MMORPG Game Mechanics
+# 05j — MMORPG Game Mechanics (Including Terminal-Based)
 
 ## Scope
 
-This page extends the earlier treatment of progression vectors and economy systems by examining additional classic MMORPG mechanical families and mapping only those that remain compatible with a non-gating, offline-first document reader.
+This page extends prior progression and economy material with explicit attention to **terminal-based** MMORPG-style mechanics: text or TUI loops that remain fully usable inside a shell and that can be driven by the `devPromptReader` CLI.
 
-## Mechanical Families Examined
+## Terminal-Compatible Mechanical Families
 
-### 1. Core Gameplay Loop Granularity
+### 1. Text Core Loops
 
-- Nano / micro loops (seconds to minutes): immediate feedback after a page turn or a short auto-scroll interval.
-- Session loops (minutes to an hour): complete a document, receive a modest XP packet, optionally open a knowledge card.
-- Daily / return loops: the skippable returning suggestion already specified.
-- Seasonal or knowledge arcs: longer collections of related reading mapped to savoirs / dev / math / Money Quest.
+- Micro: print a short status line after a successful `feed` or `docs verify` invocation.
+- Session: complete a local document inspection or a bounded feed read; award a local XP delta stored in a profile file.
+- Return: a future scheduled or manual CLI run can surface a one-line “suggestion” (equivalent of the skippable card) without blocking the shell.
 
-Only the first three are required for a minimal viable retention layer; the fourth is optional and content-driven.
+### 2. Persistent Profile (File-Backed)
 
-### 2. Character / Profile Persistence
+A simple local file (for example JSON or SQLite) records vector totals, last feed ETag, and preferred theme tokens. This mirrors persistent character investment without requiring a graphical client.
 
-Persistent local profile (themes, scroll presets, vector totals) mirrors the “persistent profile investment” mechanic. Loss of the profile would feel costly; therefore export and backup of local state are recommended but never mandatory for reading.
+### 3. Collection via Completion Flags
 
-### 3. Collection and Completionism
+Document paths that have been verified or marked read accumulate in a completion set. Listing that set (`devPromptReader docs list`) supplies a lightweight collection view in pure text.
 
-Document completion flags and optional knowledge-card collections supply a light collection mechanic without inventory management or tradable items.
+### 4. Absence of Loss and Stamina
 
-### 4. Risk and Loss Avoidance
+No mechanic may revoke reading rights or impose energy costs that block `docs` or `feed` subcommands. Terminal users must always be able to inspect local files offline.
 
-Classic MMORPGs use death penalties or item loss as sinks. In the present design, the only “loss” is the voluntary decision not to claim a cosmetic unlock. No reading progress is ever revoked.
+### 5. Social Layers
 
-### 5. Social and Competitive Layers
+Guilds, chat, and leaderboards remain out of scope for the CLI core. Any future multi-user feature must be opt-in and must not affect offline commands.
 
-Guilds, leaderboards, and PvP are deliberately omitted from the core specification. Any future social feature must remain opt-in and must not affect the ability to read or upload.
+## Compatibility Filter (Terminal Edition)
 
-## Compatibility Filter
+A mechanic is admitted only when it:
 
-A mechanic is admitted into the design only when it satisfies all of the following:
+- works in a non-interactive or lightly interactive terminal;
+- stores state locally without mandatory network;
+- never gates `devPromptReader docs` or local verification;
+- can be expressed with the multi-vector model already defined;
+- produces output suitable for piping or scripting.
 
-- does not gate core reading or CRUD;
-- does not introduce tradable currency or real-money pressure;
-- remains functional offline after the initial data load;
-- respects the single-column mobile layout and 44 px touch targets;
-- can be expressed with the existing multi-vector progression model.
+## Mapping to CLI Subcommands
 
-Mechanics that fail the filter (for example, stamina systems that block reading, or auction houses) are recorded as out of scope.
+| Mechanic | CLI expression |
+|----------|----------------|
+| Micro feedback | Exit codes + one-line status on `feed` / `verify` |
+| Session reward | Local XP write after successful verify or intentional “mark read” |
+| Collection | `docs list` showing completed / verified paths |
+| Return suggestion | Optional one-line tip on `status` when cool-down elapsed |
+| Economy sink | Optional cosmetic flag in profile; never required for core commands |
 
 ---
 
