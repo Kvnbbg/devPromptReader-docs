@@ -37,5 +37,5 @@
 
 ---
 
-Previous: [05h-Functional-Component-Flow](05h-Functional-Component-Flow.md)  
+Previous: [05k-RSS-Parsing-Systems-Analysis](05k-RSS-Parsing-Systems-Analysis.md)  
 Next: [07-Integration-and-External-Links](07-Integration-and-External-Links.md)

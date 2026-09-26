@@ -61,4 +61,4 @@ This completes a fully functional, reasonably secure, and lightweight path from 
 ---
 
 Previous: [05g-RSS-Parsing-Implementation](05g-RSS-Parsing-Implementation.md)  
-Next: [06-Layout-Typography-Performance](06-Layout-Typography-Performance.md)
+Next: [05i-Go-CLI-Alternative](05i-Go-CLI-Alternative.md)

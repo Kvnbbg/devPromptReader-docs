@@ -23,15 +23,18 @@ Do not skip pages.
 11. [05f-MMORPG-Economy-Systems](docs/05f-MMORPG-Economy-Systems.md)  
 12. [05g-RSS-Parsing-Implementation](docs/05g-RSS-Parsing-Implementation.md)  
 13. [05h-Functional-Component-Flow](docs/05h-Functional-Component-Flow.md)  
-14. [06-Layout-Typography-Performance](docs/06-Layout-Typography-Performance.md)  
-15. [07-Integration-and-External-Links](docs/07-Integration-and-External-Links.md)  
-16. [08-Language-Register-and-Progression](docs/08-Language-Register-and-Progression.md)  
+14. [05i-Go-CLI-Alternative](docs/05i-Go-CLI-Alternative.md)  
+15. [05j-MMORPG-Game-Mechanics](docs/05j-MMORPG-Game-Mechanics.md)  
+16. [05k-RSS-Parsing-Systems-Analysis](docs/05k-RSS-Parsing-Systems-Analysis.md)  
+17. [06-Layout-Typography-Performance](docs/06-Layout-Typography-Performance.md)  
+18. [07-Integration-and-External-Links](docs/07-Integration-and-External-Links.md)  
+19. [08-Language-Register-and-Progression](docs/08-Language-Register-and-Progression.md)  
 
 After completing the full sequence, implementation may commence under the constraints defined herein.
 
 ## Current Documentation Version
 
-**0.4.0** (MINOR: navigation-link repair; MMORPG economy systems; detailed lightweight secure RSS parsing implementation; complete functional component flow home → devPrompt → user_select → devPromptReader).
+**0.5.0** (MINOR: Go CLI alternative implementation; further MMORPG game-mechanics exploration; expanded RSS parsing systems analysis; navigation chain repaired and extended).
 
 ## Repository Purpose
 
