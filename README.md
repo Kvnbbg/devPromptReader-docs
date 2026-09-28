@@ -1,27 +1,22 @@
 # devPromptReader Documentation
 
-**MANDATORY NOTICE**  
-Read the full sequence before implementation actions.
+## Agent packs (sparse, low / tiny models)
 
-## Agent swarms (SEO)
+| Pack | Path |
+|------|------|
+| SEO | [agents/seo/](agents/seo/) |
+| Game / Math / Money | [agents/game/](agents/game/) |
 
-Sparse task pack for low / tiny models:
+## Game pack order
 
-**[agents/seo/README.md](agents/seo/README.md)**
-
-Ordered tasks: host canonical → Search Console → titles → internal links → JSON-LD → CWV mobile.
-
-## Human reading order
-
-See `docs/` 00 → 09.  
-SEO narrative: [docs/09-Referencement-Google-SEO.md](docs/09-Referencement-Google-SEO.md).
+Chronos-vies-boosters → landscape 1-screen → device-first sync → verify orientations → dashboard dry → reader views → live tracking
 
 ## Version
 
-**0.8.0** — agent-swarm SEO pack (sparse, ordered files).
+**0.9.0**
 
-Additive only. No destruction of existing assets.
+Additive only.
 
 ---
 
-*Maintainer: Kevin Marville (Kvnbbg)*
+*Kvnbbg — contact@techandstream.com*
