@@ -24,39 +24,26 @@ Do not skip pages.
 12. [05g-RSS-Parsing-Implementation](docs/05g-RSS-Parsing-Implementation.md)  
 13. [05h-Functional-Component-Flow](docs/05h-Functional-Component-Flow.md)  
 14. [05i-Go-CLI-Alternative](docs/05i-Go-CLI-Alternative.md) — terminal binary **`devPromptReader`**  
-15. [05j-MMORPG-Game-Mechanics](docs/05j-MMORPG-Game-Mechanics.md) — including terminal-based mechanics  
+15. [05j-MMORPG-Game-Mechanics](docs/05j-MMORPG-Game-Mechanics.md)  
 16. [05k-RSS-Parsing-Systems-Analysis](docs/05k-RSS-Parsing-Systems-Analysis.md)  
 17. [06-Layout-Typography-Performance](docs/06-Layout-Typography-Performance.md)  
 18. [07-Integration-and-External-Links](docs/07-Integration-and-External-Links.md)  
 19. [08-Language-Register-and-Progression](docs/08-Language-Register-and-Progression.md)  
+20. [09-Referencement-Google-SEO](docs/09-Referencement-Google-SEO.md) — audit SEO Google techandstream.com  
 
 After completing the full sequence, implementation may commence under the constraints defined herein.
 
 ## Current Documentation Version
 
-**0.6.0** (MINOR: terminal CLI named `devPromptReader`; terminal-based MMORPG mechanics; refined RSS parsing systems analysis for browser and CLI paths).
+**0.7.0** (MINOR: audit et plan d’action référencement Google pour techandstream.com).
 
 ## Repository Purpose
 
-This repository holds the authoritative, version-controlled design documentation for **devPromptReader**, a mobile-primary, offline-capable document reader-viewer with full CRUD, secure heavy-document upload, progressive retention, and a symbiotic terminal CLI invoked as `devPromptReader`.
-
-It is intended to facilitate symbiotic integration with:
-
-- [techandstream.com/savoirs](https://techandstream.com/savoirs)
-- [techandstream.com/dev](https://techandstream.com/dev)
-- [techandstream.com/math](https://techandstream.com/math)
-- Money Quest (finance decision loops)
-- official public information sources
-
-and to serve as the living Game Design Document (GDD) foundation under the kvnbbg namespace.
+This repository holds the authoritative, version-controlled design documentation for **devPromptReader**, a mobile-primary, offline-capable document reader-viewer with full CRUD, secure heavy-document upload, progressive retention, a symbiotic terminal CLI (`devPromptReader`), and SEO guidance for the public Tech & Stream surface.
 
 **No existing assets are to be destroyed or overwritten.** All work remains additive.
 
-## Formal Register
-
-All content follows a formal academic style consistent with Harvard semantic conventions: precise terminology, logical hierarchy, defined claims, and progressive disclosure from operational simplicity to expert technical depth.
-
 ---
 
-*Last updated: 2026-09-26*  
+*Last updated: 2026-09-28*  
 *Maintainer: Kevin Marville (Kvnbbg) — contact@techandstream.com*
