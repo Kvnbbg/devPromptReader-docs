@@ -14,13 +14,15 @@
 | Math Lab / Money Quest / chronos / vies | `agents/game/` |
 | Notification throttle | `agents/notify/` |
 | Boosters design + code | `agents/boosters/` |
+| **Hospital / medical MMORPG (MatrixCitizen)** | `agents/matrix-hospital/` |
 
 ## Human long docs
 
-`docs/00` … `docs/10` — full design. Agents prefer `agents/*` sparse files.
+`docs/00` … `docs/12` — full design. Agents prefer `agents/*` sparse files.
 
 ## Keywords → path
 
+hospital, trauma, urgence, médecin, RP, MatrixCitizen, simulation travail → `agents/matrix-hospital/`  
 throttle, notification, skippable → `agents/notify/`  
 booster, reward, perseverance → `agents/boosters/`  
 chrono, life, gold, landscape → `agents/game/`  
