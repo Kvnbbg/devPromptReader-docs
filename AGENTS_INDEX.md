@@ -7,26 +7,27 @@
 
 ## Ready-to-use code (no compile)
 
-**`components/`** — vanilla ES modules
+**`components/`** — import from `components/index.js`
 
-## Ops
-
-| Need | Path |
-|------|------|
-| Stripe dispute process (no PII) | `ops/stripe-dispute-playbook.md` |
+| Module | Purpose |
+|--------|---------|
+| soft-notice.js | Throttle notices |
+| boosters.js | Rewards |
+| chronos-lives.js | Timer / gold / lives |
+| hospital-state.js | Hospital RP state |
+| integrate.js | One session API |
+| dashboard-dry.js | Hub stats |
+| money-quest-progress.js | MQ slices |
+| smoke-assert.js | Smoke test |
 
 ## Packs
 
 | Need | Path |
 |------|------|
-| Runnable JS components | `components/` |
+| JS components | `components/` |
 | SEO | `agents/seo/` |
-| Game Math Money | `agents/game/` |
-| Notify throttle | `agents/notify/` |
+| Game | `agents/game/` |
+| Notify | `agents/notify/` |
 | Boosters | `agents/boosters/` |
-| Hospital MMORPG | `agents/matrix-hospital/` |
-
-## Keywords → path
-
-dispute, chargeback, stripe litige → `ops/stripe-dispute-playbook.md`  
-component, integrate → `components/`
+| Hospital | `agents/matrix-hospital/` |
+| Stripe dispute template | `ops/stripe-dispute-playbook.md` |

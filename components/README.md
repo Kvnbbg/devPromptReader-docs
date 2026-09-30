@@ -2,34 +2,59 @@
 
 Vanilla ES modules. No TypeScript, no bundler, no npm required for basic use.
 
+Aligned with agent packs: `agents/notify`, `agents/boosters`, `agents/game`, `agents/matrix-hospital`.
+
 ## Load in browser
 
 ```html
 <script type="module">
-  import { createSoftNoticeQueue } from './components/soft-notice.js';
-  import { maybeGrantBooster, consumeBooster, loadBoosters } from './components/boosters.js';
-  import { loadHospital, saveHospital, defaultHospitalState, applyConsequence } from './components/hospital-state.js';
-  import { createChronosLives } from './components/chronos-lives.js';
-  import { createGameSession } from './components/integrate.js';
+  import {
+    createGameSession,
+    createSoftNoticeQueue,
+    maybeGrantBooster,
+    loadDashboard,
+    recordMoneySlice,
+  } from './components/index.js';
+
+  const session = createGameSession({ useHospital: true });
+  session.startChronos();
+  session.onCorrectAnswer();
+  console.log(session.snapshot());
+  console.log(loadDashboard());
 </script>
 ```
 
-Or copy files into your app `src/lib/` and import the same way.
+Or import individual files: `soft-notice.js`, `boosters.js`, etc.
 
 ## Security notes
 
-- No `eval`, no remote code.
-- `localStorage` only; wrap in try/catch.
-- Strings from notices should be textContent, never innerHTML, unless you sanitize.
-- Hospital content is fiction only — show disclaimer in UI.
+- No `eval`, no remote code execution.
+- `localStorage` only via `safe-storage.js` (try/catch).
+- Notice text: use `textContent`, not `innerHTML`, unless you sanitize.
+- Hospital path is fiction only — show `DISCLAIMER` in UI.
+- No network calls from these modules.
 
 ## Files
 
 | File | Role |
 |------|------|
+| `index.js` | Barrel exports |
+| `safe-storage.js` | Safe localStorage JSON |
 | `soft-notice.js` | Throttled soft notices |
 | `boosters.js` | Grant / consume boosters |
-| `hospital-state.js` | MatrixCitizen hospital path state |
 | `chronos-lives.js` | Timer + gold-then-life |
-| `integrate.js` | Thin session wiring all of the above |
-| `safe-storage.js` | Shared safe localStorage |
+| `hospital-state.js` | MatrixCitizen hospital state |
+| `integrate.js` | Session wiring |
+| `dashboard-dry.js` | Hub stats (MQ / Math / Hospital) |
+| `money-quest-progress.js` | Money Quest slices |
+| `smoke-assert.js` | Smoke checks |
+| `example-usage.html` | Demo page |
+
+## Smoke test
+
+```html
+<script type="module">
+  import { runSmokeAssert } from './components/smoke-assert.js';
+  console.log(runSmokeAssert());
+</script>
+```

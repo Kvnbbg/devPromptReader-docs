@@ -4,19 +4,25 @@
 
 **[AGENTS_INDEX.md](AGENTS_INDEX.md)**
 
-## Components (no compile)
+## Components (no compilation)
 
-**[components/](components/)**
+**[components/](components/)** — secure vanilla ES modules:
+
+`index.js`, soft-notice, boosters, chronos-lives, hospital-state, integrate, dashboard-dry, money-quest-progress, smoke-assert, example-usage.html
+
+```js
+import { createGameSession, loadDashboard, recordMoneySlice } from './components/index.js';
+```
 
 ## Ops
 
-**[ops/stripe-dispute-playbook.md](ops/stripe-dispute-playbook.md)** — merchant dispute process template (no case PII).
+[ops/stripe-dispute-playbook.md](ops/stripe-dispute-playbook.md)
 
 ## Version
 
-**1.2.1**
+**1.3.0** — full component barrel + dashboard + Money Quest progress + smoke assert.
 
-Additive only.
+Additive only. Symbiosis OK.
 
 ---
 
