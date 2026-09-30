@@ -64,4 +64,13 @@ export {
   onOrientationChange,
   orientationClass,
 } from './orientation-media.js';
+export {
+  MIN_TOUCH_PX,
+  measureTouchTarget,
+  ensureMinTouchSize,
+  findSmallTouchTargets,
+} from './touch-targets.js';
+export { addPointerListener, bindPressSurface } from './touch-listeners.js';
+export { attachSwipe } from './touch-swipe.js';
+export { attachPress } from './touch-press.js';
 export { runSmokeAssert } from './smoke-assert.js';

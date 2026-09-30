@@ -1,45 +1,23 @@
 # Components — modules JS autonomes
 
-> Prêts à l’emploi, sécurisés, **sans dépendance de compilation**, alignés sur les packs documentés.
+Sans compilation. Sécurisés. Alignés packs documentés.
 
-## Import unique
-
-```js
-import {
-  createGameSession,
-  createSoftNoticeQueue,
-  assertCheckoutAllowed,
-  assertCanPurchaseEntitlement,
-  buildCheckoutSessionParams,
-  recordPaymentProof,
-  runSmokeAssert,
-} from './components/index.js';
-```
-
-## Crédits / abonnements (connexion obligatoire)
+## Touch
 
 ```js
 import {
-  assertCanPurchaseEntitlement,
-  kindRequiresAuth,
-  buildCheckoutSessionParams,
-  accessMetadata,
+  ensureMinTouchSize,
+  attachSwipe,
+  attachPress,
+  isLandscape,
 } from './components/index.js';
 
-if (kindRequiresAuth('subscription')) {
-  const auth = assertCanPurchaseEntitlement(req.user); // throws if guest
-  const sessionParams = buildCheckoutSessionParams({
-    mode: 'subscription',
-    successUrl,
-    cancelUrl,
-    customerEmail: auth.email,
-    clientReferenceId: auth.userId,
-    requireBillingAddress: true,
-    metadata: accessMetadata({ userId: auth.userId, productId: 'pro', kind: 'subscription' }),
-  });
-}
+ensureMinTouchSize(btn);
+const stop = attachSwipe(el, {
+  axis: 'horizontal',
+  onSwipe: function (dir) { console.log(dir); },
+});
+// later: stop();
 ```
 
-## Inventaire
-
-[MANIFEST.md](./MANIFEST.md)
+See [docs/14-Touch-Events.md](../docs/14-Touch-Events.md).
