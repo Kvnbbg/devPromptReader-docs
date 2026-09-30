@@ -1,37 +1,45 @@
-# Components — autonomous JS, no compilation
+# Components — modules JS autonomes
 
-Vanilla ES modules. Secure. Aligned with agent packs + fraud/payment ops.
+> Prêts à l’emploi, sécurisés, **sans dépendance de compilation**, alignés sur les packs documentés.
 
-## Entry
+## Import unique
 
 ```js
 import {
   createGameSession,
+  createSoftNoticeQueue,
   assertCheckoutAllowed,
+  assertCanPurchaseEntitlement,
   buildCheckoutSessionParams,
-  cardThreeDSecureOptions,
+  recordPaymentProof,
   runSmokeAssert,
 } from './components/index.js';
-
-// Server only — merge into stripe.checkout.sessions.create({
-const sessionParams = {
-  ...buildCheckoutSessionParams({
-    mode: 'subscription',
-    successUrl: 'https://techandstream.com/success',
-    cancelUrl: 'https://techandstream.com/cancel',
-    customerEmail: user.email,
-    clientReferenceId: user.id,
-    requireBillingAddress: true,
-    metadata: { product_id: 'pro' },
-  }),
-  line_items: [/* your price */],
-};
 ```
 
-## Inventory
+## Crédits / abonnements (connexion obligatoire)
 
-See [MANIFEST.md](./MANIFEST.md).
+```js
+import {
+  assertCanPurchaseEntitlement,
+  kindRequiresAuth,
+  buildCheckoutSessionParams,
+  accessMetadata,
+} from './components/index.js';
 
-## Payment verification
+if (kindRequiresAuth('subscription')) {
+  const auth = assertCanPurchaseEntitlement(req.user); // throws if guest
+  const sessionParams = buildCheckoutSessionParams({
+    mode: 'subscription',
+    successUrl,
+    cancelUrl,
+    customerEmail: auth.email,
+    clientReferenceId: auth.userId,
+    requireBillingAddress: true,
+    metadata: accessMetadata({ userId: auth.userId, productId: 'pro', kind: 'subscription' }),
+  });
+}
+```
 
-[ops/payment-verification-checklist.md](../ops/payment-verification-checklist.md)
+## Inventaire
+
+[MANIFEST.md](./MANIFEST.md)

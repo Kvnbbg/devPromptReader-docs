@@ -1,5 +1,6 @@
 /**
- * Barrel export — single import path, no bundler required.
+ * Barrel export — autonomous ES modules, no bundler required.
+ * Principle: secure, ready-to-use, aligned with documented agent packs.
  * @module components/index
  */
 
@@ -52,4 +53,10 @@ export {
   cardThreeDSecureOptions,
   accessMetadata,
 } from './checkout-session-options.js';
+export {
+  requireLoggedInUser,
+  assertCanPurchaseEntitlement,
+  kindRequiresAuth,
+  AUTH_REQUIRED_KINDS,
+} from './require-auth-gate.js';
 export { runSmokeAssert } from './smoke-assert.js';

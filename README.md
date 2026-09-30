@@ -1,29 +1,24 @@
 # devPromptReader Documentation
 
-## Components (no compile)
+## Principe composants
 
-**[components/](components/)** — [MANIFEST](components/MANIFEST.md)
+**Modules JavaScript autonomes** — prêts à l’emploi, sécurisés, sans compilation, alignés sur les packs documentés.
+
+→ **[components/](components/)** · [MANIFEST](components/MANIFEST.md)
 
 ```js
 import {
   createGameSession,
   assertCheckoutAllowed,
+  assertCanPurchaseEntitlement,
   buildCheckoutSessionParams,
   runSmokeAssert,
 } from './components/index.js';
 ```
 
-## Payment / fraud ops
-
-- [ops/payment-verification-checklist.md](ops/payment-verification-checklist.md)
-- [ops/stripe-exposed-key-recovery.md](ops/stripe-exposed-key-recovery.md)
-- [ops/checkout-fraud-controls.md](ops/checkout-fraud-controls.md)
-
 ## Version
 
-**1.5.0** — payment verification checklist + checkout-session-options module.
-
-Additive only. Symbiosis OK.
+**1.5.1** — `require-auth-gate` for credits/subscriptions.
 
 ---
 
