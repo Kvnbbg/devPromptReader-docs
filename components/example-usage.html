@@ -3,24 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Components example — no build</title>
+  <title>Components demo — no build</title>
   <style>
-    body { font-family: system-ui, sans-serif; max-width: 28rem; margin: 1rem auto; padding: 0 1rem; }
-    button { min-height: 44px; min-width: 44px; margin: 0.25rem; padding: 0.5rem 0.75rem; }
+    body { font-family: system-ui, sans-serif; max-width: 32rem; margin: 1rem auto; padding: 0 1rem; }
+    button { min-height: 44px; margin: 0.25rem; padding: 0.5rem 0.75rem; }
     #banner { border: 1px solid #333; padding: 0.75rem; margin: 0.75rem 0; min-height: 2.5rem; }
     pre { background: #111; color: #ddd; padding: 0.75rem; overflow: auto; font-size: 12px; }
+    .err { color: #b00; }
   </style>
 </head>
 <body>
-  <h1>Session demo</h1>
+  <h1>Session + checkout guard</h1>
   <p id="disclaimer" hidden></p>
   <div id="banner"></div>
   <button type="button" id="correct">Correct</button>
   <button type="button" id="wrong">Wrong</button>
   <button type="button" id="skip">Skip notice</button>
+  <button type="button" id="smoke">Run smoke</button>
+  <button type="button" id="guardBad">Test guard (Test name)</button>
+  <button type="button" id="guardGood">Test guard (valid)</button>
   <pre id="out"></pre>
   <script type="module">
-    import { createGameSession } from './integrate.js';
+    import {
+      createGameSession,
+      validateCheckoutFields,
+      runSmokeAssert,
+    } from './index.js';
 
     const session = createGameSession({ useHospital: true, initialSeconds: 45 });
     session.startChronos();
@@ -29,14 +37,14 @@
     const banner = document.getElementById('banner');
     const disc = document.getElementById('disclaimer');
 
-    function render() {
+    function render(extra) {
       const s = session.snapshot();
       if (s.disclaimer) {
         disc.hidden = false;
         disc.textContent = s.disclaimer;
       }
       banner.textContent = s.notice ? s.notice.text : '';
-      out.textContent = JSON.stringify(s, null, 2);
+      out.textContent = JSON.stringify({ snapshot: s, extra: extra || null }, null, 2);
     }
 
     document.getElementById('correct').onclick = function () {
@@ -50,6 +58,22 @@
     document.getElementById('skip').onclick = function () {
       session.skipNotice();
       render();
+    };
+    document.getElementById('smoke').onclick = function () {
+      render({ smoke: runSmokeAssert() });
+    };
+    document.getElementById('guardBad').onclick = function () {
+      render({
+        guard: validateCheckoutFields({ email: '', cardName: 'Test' }),
+      });
+    };
+    document.getElementById('guardGood').onclick = function () {
+      render({
+        guard: validateCheckoutFields({
+          email: 'user@example.com',
+          cardName: 'Ada Lovelace',
+        }),
+      });
     };
 
     setInterval(function () {

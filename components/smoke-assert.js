@@ -1,6 +1,5 @@
 /**
- * Tiny smoke checks — run in browser console or node with localStorage mock.
- * Does not throw on missing localStorage; reports results object.
+ * Smoke checks — browser or Node with localStorage mock.
  * @module smoke-assert
  */
 
@@ -10,6 +9,12 @@ import { createChronosLives } from './chronos-lives.js';
 import { createGameSession } from './integrate.js';
 import { loadDashboard } from './dashboard-dry.js';
 import { recordMoneySlice, loadMoneyQuest } from './money-quest-progress.js';
+import {
+  validateCheckoutFields,
+  isBlockedCardholderName,
+  isValidEmail,
+} from './checkout-guard.js';
+import { recordPaymentProof, findProofsFor } from './access-proof.js';
 
 /**
  * @returns {{ ok: boolean, checks: Record<string, boolean>, errors: string[] }}
@@ -58,10 +63,41 @@ export function runSmokeAssert() {
   });
 
   check('moneyQuest', function () {
-    recordMoneySlice({ sliceId: 'smoke', pointsDelta: 1, success: true, seconds: 1 });
+    recordMoneySlice({
+      sliceId: 'smoke',
+      pointsDelta: 1,
+      success: true,
+      seconds: 1,
+    });
     return loadMoneyQuest().points >= 0;
   });
 
-  const ok = errors.length === 0;
-  return { ok: ok, checks: checks, errors: errors };
+  check('checkoutGuardBlocksTest', function () {
+    return isBlockedCardholderName('Test') === true;
+  });
+
+  check('checkoutGuardEmail', function () {
+    return isValidEmail('a@b.co') === true && isValidEmail('') === false;
+  });
+
+  check('checkoutValidate', function () {
+    const bad = validateCheckoutFields({ email: '', cardName: 'Test' });
+    const good = validateCheckoutFields({
+      email: 'user@example.com',
+      cardName: 'Ada Lovelace',
+    });
+    return bad.ok === false && good.ok === true;
+  });
+
+  check('accessProof', function () {
+    recordPaymentProof({
+      paymentIntentId: 'pi_smoke',
+      email: 'user@example.com',
+      amount: 5,
+      currency: 'usd',
+    });
+    return findProofsFor('pi_smoke').length >= 1;
+  });
+
+  return { ok: errors.length === 0, checks: checks, errors: errors };
 }

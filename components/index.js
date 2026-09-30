@@ -46,3 +46,5 @@ export {
   findProofsFor,
   exportProofs,
 } from './access-proof.js';
+export { validatePaymentRequestBody } from './server-validate.js';
+export { runSmokeAssert } from './smoke-assert.js';

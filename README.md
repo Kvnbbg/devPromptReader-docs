@@ -1,18 +1,23 @@
 # devPromptReader Documentation
 
-## Fraud / Stripe ops (priority)
+## Components (no compile) — symbiosis OK
 
-- [ops/stripe-exposed-key-recovery.md](ops/stripe-exposed-key-recovery.md) — clé exposée, rotation, pourquoi la suspension persiste
-- [ops/checkout-fraud-controls.md](ops/checkout-fraud-controls.md) — Test name, e-mail, 3DS, Radar
-- [components/checkout-guard.js](components/checkout-guard.js) + [access-proof.js](components/access-proof.js)
+**[components/](components/)** — complete pack, see [components/MANIFEST.md](components/MANIFEST.md)
 
-## Components
+```js
+import { createGameSession, assertCheckoutAllowed, runSmokeAssert } from './components/index.js';
+```
 
-[components/](components/) — no compile
+## Fraud / Stripe ops
+
+- [ops/stripe-exposed-key-recovery.md](ops/stripe-exposed-key-recovery.md)
+- [ops/checkout-fraud-controls.md](ops/checkout-fraud-controls.md)
 
 ## Version
 
-**1.4.0**
+**1.4.1** — component cohesion repair + server-validate + smoke extended.
+
+Additive only. Nothing destroyed.
 
 ---
 

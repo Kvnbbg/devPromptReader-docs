@@ -1,20 +1,31 @@
-# Components — ready to use (no build)
+# Components — autonomous JS, no compilation
 
-Vanilla ES modules. No TypeScript, no bundler required.
+Vanilla ES modules. Secure defaults. Aligned with agent packs + fraud ops.
 
-## Fraud / checkout
+## Entry
 
 ```js
-import { assertCheckoutAllowed, recordPaymentProof, recordAccessProof } from './components/index.js';
-
-assertCheckoutAllowed({ email: userEmail, cardName: nameOnCard });
-// after webhook-confirmed success:
-recordPaymentProof({ paymentIntentId, chargeId, email, productId, amount: 5, currency: 'usd' });
-recordAccessProof({ paymentIntentId, path: '/app' });
+import {
+  createGameSession,
+  assertCheckoutAllowed,
+  recordPaymentProof,
+  validatePaymentRequestBody,
+  runSmokeAssert,
+} from './components/index.js';
 ```
 
-See also `ops/checkout-fraud-controls.md` and `ops/stripe-exposed-key-recovery.md`.
+## Inventory
 
-## Other modules
+See [MANIFEST.md](./MANIFEST.md).
 
-soft-notice, boosters, chronos-lives, hospital-state, integrate, dashboard-dry, money-quest-progress, smoke-assert, safe-storage, index.js
+## Security
+
+- No eval, no network inside modules
+- localStorage via safe-storage try/catch
+- Checkout: block Test/empty names, require email
+- Server: use `server-validate.js` + Stripe webhook signatures
+- Hospital: fiction disclaimer only
+
+## Demo
+
+Open `example-usage.html` via any static server (ES modules need HTTP, not always `file://`).
