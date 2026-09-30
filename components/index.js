@@ -1,6 +1,5 @@
 /**
- * Barrel export — autonomous ES modules, no bundler required.
- * Principle: secure, ready-to-use, aligned with documented agent packs.
+ * Barrel — autonomous ES modules, no compilation.
  * @module components/index
  */
 
@@ -59,4 +58,10 @@ export {
   kindRequiresAuth,
   AUTH_REQUIRED_KINDS,
 } from './require-auth-gate.js';
+export {
+  getOrientation,
+  isLandscape,
+  onOrientationChange,
+  orientationClass,
+} from './orientation-media.js';
 export { runSmokeAssert } from './smoke-assert.js';

@@ -1,19 +1,11 @@
 # AGENTS INDEX
 
-## Payment / fraud
-
 | Need | Path |
 |------|------|
-| Verify pay / 3DS / login | `ops/payment-verification-checklist.md` |
-| Exposed API key | `ops/stripe-exposed-key-recovery.md` |
-| Checkout fraud rules | `ops/checkout-fraud-controls.md` |
-| Session option helpers | `components/checkout-session-options.js` |
-| Field guards | `components/checkout-guard.js` |
-
-## Components entry
-
-`components/index.js`
-
-## Packs
-
-agents/seo, game, notify, boosters, matrix-hospital
+| JS modules (no build) | `components/` |
+| Nav dedupe debt | `agents/nav/01-dedupe-top-mobile.md` |
+| Milestone 2026-09-30 | `ops/milestone-2026-09-30.md` |
+| Payment verify | `ops/payment-verification-checklist.md` |
+| Stripe key exposed | `ops/stripe-exposed-key-recovery.md` |
+| SEO | `agents/seo/` |
+| Game / hospital | `agents/game/`, `agents/matrix-hospital/` |

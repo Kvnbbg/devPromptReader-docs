@@ -1,22 +1,23 @@
 # components/ MANIFEST
 
-**Principle:** autonomous JavaScript modules — ready to use, secure, no compilation dependency, aligned with documented packs.
+**Principle:** autonomous JS — ready, secure, no compile, aligned with packs.
 
-| File | Pack / ops alignment |
-|------|----------------------|
-| safe-storage.js | foundation |
-| soft-notice.js | agents/notify |
-| boosters.js | agents/boosters |
-| chronos-lives.js | agents/game |
-| hospital-state.js | agents/matrix-hospital |
-| integrate.js | session glue |
-| dashboard-dry.js | agents/game/05 |
-| money-quest-progress.js | Money Quest |
-| checkout-guard.js | ops/checkout-fraud |
-| access-proof.js | dispute evidence |
-| server-validate.js | server same rules |
-| checkout-session-options.js | ops/payment-verification |
-| require-auth-gate.js | credits & subscriptions login |
-| smoke-assert.js | QA |
+| File | Notes |
+|------|--------|
+| safe-storage.js | |
+| soft-notice.js | |
+| boosters.js | |
+| chronos-lives.js | |
+| hospital-state.js | |
+| integrate.js | |
+| dashboard-dry.js | |
+| money-quest-progress.js | |
+| checkout-guard.js | |
+| access-proof.js | |
+| server-validate.js | |
+| checkout-session-options.js | |
+| require-auth-gate.js | |
+| orientation-media.js | landscape / portrait helpers |
+| smoke-assert.js | |
 | index.js | barrel |
-| example-usage.html | demo |
+| example-usage.html | |
