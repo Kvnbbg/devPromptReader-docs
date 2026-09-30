@@ -34,3 +34,15 @@ export {
   saveMoneyQuest,
   recordMoneySlice,
 } from './money-quest-progress.js';
+export {
+  isValidEmail,
+  isBlockedCardholderName,
+  validateCheckoutFields,
+  assertCheckoutAllowed,
+} from './checkout-guard.js';
+export {
+  recordPaymentProof,
+  recordAccessProof,
+  findProofsFor,
+  exportProofs,
+} from './access-proof.js';

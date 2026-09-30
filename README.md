@@ -1,28 +1,18 @@
 # devPromptReader Documentation
 
-## START HERE FOR AGENTS
+## Fraud / Stripe ops (priority)
 
-**[AGENTS_INDEX.md](AGENTS_INDEX.md)**
+- [ops/stripe-exposed-key-recovery.md](ops/stripe-exposed-key-recovery.md) — clé exposée, rotation, pourquoi la suspension persiste
+- [ops/checkout-fraud-controls.md](ops/checkout-fraud-controls.md) — Test name, e-mail, 3DS, Radar
+- [components/checkout-guard.js](components/checkout-guard.js) + [access-proof.js](components/access-proof.js)
 
-## Components (no compilation)
+## Components
 
-**[components/](components/)** — secure vanilla ES modules:
-
-`index.js`, soft-notice, boosters, chronos-lives, hospital-state, integrate, dashboard-dry, money-quest-progress, smoke-assert, example-usage.html
-
-```js
-import { createGameSession, loadDashboard, recordMoneySlice } from './components/index.js';
-```
-
-## Ops
-
-[ops/stripe-dispute-playbook.md](ops/stripe-dispute-playbook.md)
+[components/](components/) — no compile
 
 ## Version
 
-**1.3.0** — full component barrel + dashboard + Money Quest progress + smoke assert.
-
-Additive only. Symbiosis OK.
+**1.4.0**
 
 ---
 
