@@ -1,17 +1,18 @@
 # AGENTS INDEX
 
-## Ops fraud / Stripe
+## Payment / fraud
 
 | Need | Path |
 |------|------|
-| Clé exposée + virements suspendus | `ops/stripe-exposed-key-recovery.md` |
-| Checkout anti-fraude + Radar | `ops/checkout-fraud-controls.md` |
-| Guard JS + access proof | `components/checkout-guard.js`, `components/access-proof.js` |
-| Dispute template | `ops/stripe-dispute-playbook.md` |
+| Verify pay / 3DS / login | `ops/payment-verification-checklist.md` |
+| Exposed API key | `ops/stripe-exposed-key-recovery.md` |
+| Checkout fraud rules | `ops/checkout-fraud-controls.md` |
+| Session option helpers | `components/checkout-session-options.js` |
+| Field guards | `components/checkout-guard.js` |
 
-## Components
+## Components entry
 
-`components/index.js` — barrel including checkout-guard + access-proof
+`components/index.js`
 
 ## Packs
 

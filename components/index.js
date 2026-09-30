@@ -47,4 +47,9 @@ export {
   exportProofs,
 } from './access-proof.js';
 export { validatePaymentRequestBody } from './server-validate.js';
+export {
+  buildCheckoutSessionParams,
+  cardThreeDSecureOptions,
+  accessMetadata,
+} from './checkout-session-options.js';
 export { runSmokeAssert } from './smoke-assert.js';

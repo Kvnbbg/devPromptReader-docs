@@ -1,6 +1,6 @@
 # Components — autonomous JS, no compilation
 
-Vanilla ES modules. Secure defaults. Aligned with agent packs + fraud ops.
+Vanilla ES modules. Secure. Aligned with agent packs + fraud/payment ops.
 
 ## Entry
 
@@ -8,24 +8,30 @@ Vanilla ES modules. Secure defaults. Aligned with agent packs + fraud ops.
 import {
   createGameSession,
   assertCheckoutAllowed,
-  recordPaymentProof,
-  validatePaymentRequestBody,
+  buildCheckoutSessionParams,
+  cardThreeDSecureOptions,
   runSmokeAssert,
 } from './components/index.js';
+
+// Server only — merge into stripe.checkout.sessions.create({
+const sessionParams = {
+  ...buildCheckoutSessionParams({
+    mode: 'subscription',
+    successUrl: 'https://techandstream.com/success',
+    cancelUrl: 'https://techandstream.com/cancel',
+    customerEmail: user.email,
+    clientReferenceId: user.id,
+    requireBillingAddress: true,
+    metadata: { product_id: 'pro' },
+  }),
+  line_items: [/* your price */],
+};
 ```
 
 ## Inventory
 
 See [MANIFEST.md](./MANIFEST.md).
 
-## Security
+## Payment verification
 
-- No eval, no network inside modules
-- localStorage via safe-storage try/catch
-- Checkout: block Test/empty names, require email
-- Server: use `server-validate.js` + Stripe webhook signatures
-- Hospital: fiction disclaimer only
-
-## Demo
-
-Open `example-usage.html` via any static server (ES modules need HTTP, not always `file://`).
+[ops/payment-verification-checklist.md](../ops/payment-verification-checklist.md)

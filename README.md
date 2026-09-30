@@ -1,23 +1,29 @@
 # devPromptReader Documentation
 
-## Components (no compile) — symbiosis OK
+## Components (no compile)
 
-**[components/](components/)** — complete pack, see [components/MANIFEST.md](components/MANIFEST.md)
+**[components/](components/)** — [MANIFEST](components/MANIFEST.md)
 
 ```js
-import { createGameSession, assertCheckoutAllowed, runSmokeAssert } from './components/index.js';
+import {
+  createGameSession,
+  assertCheckoutAllowed,
+  buildCheckoutSessionParams,
+  runSmokeAssert,
+} from './components/index.js';
 ```
 
-## Fraud / Stripe ops
+## Payment / fraud ops
 
+- [ops/payment-verification-checklist.md](ops/payment-verification-checklist.md)
 - [ops/stripe-exposed-key-recovery.md](ops/stripe-exposed-key-recovery.md)
 - [ops/checkout-fraud-controls.md](ops/checkout-fraud-controls.md)
 
 ## Version
 
-**1.4.1** — component cohesion repair + server-validate + smoke extended.
+**1.5.0** — payment verification checklist + checkout-session-options module.
 
-Additive only. Nothing destroyed.
+Additive only. Symbiosis OK.
 
 ---
 
