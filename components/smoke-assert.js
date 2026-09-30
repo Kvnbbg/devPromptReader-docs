@@ -15,6 +15,9 @@ import {
   isValidEmail,
 } from './checkout-guard.js';
 import { recordPaymentProof, findProofsFor } from './access-proof.js';
+import { MIN_TOUCH_PX } from './touch-targets.js';
+import { createAutoScroll, SCROLL_PRESETS } from './reader-auto-scroll.js';
+import { kindRequiresAuth } from './require-auth-gate.js';
 
 /**
  * @returns {{ ok: boolean, checks: Record<string, boolean>, errors: string[] }}
@@ -97,6 +100,21 @@ export function runSmokeAssert() {
       currency: 'usd',
     });
     return findProofsFor('pi_smoke').length >= 1;
+  });
+
+  check('authGate', function () {
+    return kindRequiresAuth('subscription') === true;
+  });
+
+  check('touchMin', function () {
+    return MIN_TOUCH_PX === 44;
+  });
+
+  check('autoScroll', function () {
+    const fake = { scrollTop: 0, scrollHeight: 500, clientHeight: 100 };
+    const sc = createAutoScroll(fake, { speedPxPerSec: SCROLL_PRESETS.medium });
+    sc.setSpeed(50);
+    return sc.getSpeed() === 50 && !sc.isRunning();
   });
 
   return { ok: errors.length === 0, checks: checks, errors: errors };

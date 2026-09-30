@@ -1,23 +1,30 @@
 # Components — modules JS autonomes
 
-Sans compilation. Sécurisés. Alignés packs documentés.
+> Prêts à l’emploi, sécurisés, **sans compilation**, alignés sur les packs documentés.
 
-## Touch
+## Import
 
 ```js
 import {
-  ensureMinTouchSize,
+  createGameSession,
   attachSwipe,
-  attachPress,
-  isLandscape,
+  createAutoScroll,
+  SCROLL_PRESETS,
+  ensureMinTouchSize,
+  assertCheckoutAllowed,
+  runSmokeAssert,
 } from './components/index.js';
-
-ensureMinTouchSize(btn);
-const stop = attachSwipe(el, {
-  axis: 'horizontal',
-  onSwipe: function (dir) { console.log(dir); },
-});
-// later: stop();
 ```
 
-See [docs/14-Touch-Events.md](../docs/14-Touch-Events.md).
+## Reader auto-scroll + swipe
+
+```js
+const sc = createAutoScroll(readerEl, { speedPxPerSec: SCROLL_PRESETS.medium });
+sc.start();
+attachSwipe(readerEl, {
+  axis: 'vertical',
+  onSwipe: function () { sc.pause(); },
+});
+```
+
+See MANIFEST.md and docs/14-Touch-Events.md.

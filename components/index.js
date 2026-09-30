@@ -73,4 +73,5 @@ export {
 export { addPointerListener, bindPressSurface } from './touch-listeners.js';
 export { attachSwipe } from './touch-swipe.js';
 export { attachPress } from './touch-press.js';
+export { createAutoScroll, SCROLL_PRESETS } from './reader-auto-scroll.js';
 export { runSmokeAssert } from './smoke-assert.js';
