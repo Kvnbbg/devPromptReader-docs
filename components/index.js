@@ -1,5 +1,6 @@
 /**
  * Barrel — autonomous ES modules, no compilation.
+ * Lecteur + game + touch + payment + SEO dry.
  * @module components/index
  */
 
@@ -74,4 +75,17 @@ export { addPointerListener, bindPressSurface } from './touch-listeners.js';
 export { attachSwipe } from './touch-swipe.js';
 export { attachPress } from './touch-press.js';
 export { createAutoScroll, SCROLL_PRESETS } from './reader-auto-scroll.js';
+export { applySeoHead, applySocialMeta } from './seo-head-dry.js';
+export {
+  setJsonLd,
+  lecteurAppJsonLd,
+  breadcrumbJsonLd,
+} from './seo-json-ld.js';
+export { applyLecteurSeoBoost, SEO_DRY_CHECKLIST } from './seo-boost-dry.js';
+export {
+  ensureSearchBarStyles,
+  playRipple,
+  playBounce,
+  enhanceSearchBar,
+} from './search-bar-fx.js';
 export { runSmokeAssert } from './smoke-assert.js';

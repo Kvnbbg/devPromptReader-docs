@@ -1,25 +1,19 @@
 # devPromptReader Documentation
 
-## Principle
+**Lecteur** — good mobile reader app. Components are autonomous JS modules (no build).
 
-Autonomous **JavaScript modules** — ready, secure, no compilation, aligned with packs.
-
-→ [components/](components/) · [MANIFEST](components/MANIFEST.md)
+## SEO dry + search FX
 
 ```js
-import {
-  createAutoScroll,
-  attachSwipe,
-  ensureMinTouchSize,
-  runSmokeAssert,
-} from './components/index.js';
+import { applyLecteurSeoBoost, enhanceSearchBar } from './components/index.js';
 ```
+
+- [docs/15-SEO-SearchBar-Dry.md](docs/15-SEO-SearchBar-Dry.md)
+- [agents/seo/07-search-bar-fx-dry.md](agents/seo/07-search-bar-fx-dry.md)
 
 ## Version
 
-**1.8.0** — reader-auto-scroll + full manifest + smoke extended.
-
-Symbiosis OK. Additive only.
+**1.9.0**
 
 ---
 

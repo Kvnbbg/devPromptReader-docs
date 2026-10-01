@@ -1,30 +1,21 @@
-# Components — modules JS autonomes
-
-> Prêts à l’emploi, sécurisés, **sans compilation**, alignés sur les packs documentés.
-
-## Import
+# Components — Lecteur modules (no compile)
 
 ```js
 import {
-  createGameSession,
-  attachSwipe,
+  applyLecteurSeoBoost,
+  enhanceSearchBar,
   createAutoScroll,
-  SCROLL_PRESETS,
-  ensureMinTouchSize,
-  assertCheckoutAllowed,
+  attachSwipe,
   runSmokeAssert,
 } from './components/index.js';
-```
 
-## Reader auto-scroll + swipe
-
-```js
-const sc = createAutoScroll(readerEl, { speedPxPerSec: SCROLL_PRESETS.medium });
-sc.start();
-attachSwipe(readerEl, {
-  axis: 'vertical',
-  onSwipe: function () { sc.pause(); },
+applyLecteurSeoBoost({
+  title: 'Lecteur',
+  description: 'Read documents locally, mobile-first.',
+  canonicalUrl: 'https://www.techandstream.com/lecteur',
 });
+
+enhanceSearchBar(document.querySelector('#search'));
 ```
 
-See MANIFEST.md and docs/14-Touch-Events.md.
+SEO is **dry & legitimate** only (no cloaking / fake bounce).
