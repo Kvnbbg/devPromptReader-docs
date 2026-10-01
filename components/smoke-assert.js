@@ -18,10 +18,10 @@ import { recordPaymentProof, findProofsFor } from './access-proof.js';
 import { MIN_TOUCH_PX } from './touch-targets.js';
 import { createAutoScroll, SCROLL_PRESETS } from './reader-auto-scroll.js';
 import { kindRequiresAuth } from './require-auth-gate.js';
+import { lecteurAppJsonLd, breadcrumbJsonLd } from './seo-json-ld.js';
+import { SEO_DRY_CHECKLIST } from './seo-boost-dry.js';
+import { THEMES, cycleTheme } from './reader-theme.js';
 
-/**
- * @returns {{ ok: boolean, checks: Record<string, boolean>, errors: string[] }}
- */
 export function runSmokeAssert() {
   const checks = {};
   const errors = [];
@@ -115,6 +115,20 @@ export function runSmokeAssert() {
     const sc = createAutoScroll(fake, { speedPxPerSec: SCROLL_PRESETS.medium });
     sc.setSpeed(50);
     return sc.getSpeed() === 50 && !sc.isRunning();
+  });
+
+  check('seoJsonLd', function () {
+    const app = lecteurAppJsonLd({ name: 'Lecteur' });
+    const bc = breadcrumbJsonLd([{ name: 'Home', url: 'https://example.com/' }]);
+    return app['@type'] === 'WebApplication' && bc.itemListElement.length === 1;
+  });
+
+  check('seoChecklist', function () {
+    return Array.isArray(SEO_DRY_CHECKLIST) && SEO_DRY_CHECKLIST.length > 3;
+  });
+
+  check('readerTheme', function () {
+    return THEMES.indexOf('dark') !== -1 && cycleTheme('white') === 'light';
   });
 
   return { ok: errors.length === 0, checks: checks, errors: errors };

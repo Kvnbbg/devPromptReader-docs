@@ -1,6 +1,5 @@
 /**
  * Barrel — autonomous ES modules, no compilation.
- * Lecteur + game + touch + payment + SEO dry.
  * @module components/index
  */
 
@@ -88,4 +87,10 @@ export {
   playBounce,
   enhanceSearchBar,
 } from './search-bar-fx.js';
+export {
+  THEMES,
+  ensureReaderThemeStyles,
+  applyReaderTheme,
+  cycleTheme,
+} from './reader-theme.js';
 export { runSmokeAssert } from './smoke-assert.js';

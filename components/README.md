@@ -1,21 +1,19 @@
-# Components — Lecteur modules (no compile)
+# Components — Lecteur (no compile)
 
 ```js
 import {
   applyLecteurSeoBoost,
   enhanceSearchBar,
+  applyReaderTheme,
   createAutoScroll,
   attachSwipe,
   runSmokeAssert,
 } from './components/index.js';
 
-applyLecteurSeoBoost({
-  title: 'Lecteur',
-  description: 'Read documents locally, mobile-first.',
-  canonicalUrl: 'https://www.techandstream.com/lecteur',
+applyReaderTheme(document.getElementById('reader'), {
+  theme: 'dark',
+  fontSize: 'lg',
 });
-
-enhanceSearchBar(document.querySelector('#search'));
 ```
 
-SEO is **dry & legitimate** only (no cloaking / fake bounce).
+See MANIFEST.md · docs/15-SEO-SearchBar-Dry.md
