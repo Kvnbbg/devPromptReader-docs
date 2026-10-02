@@ -1,17 +1,16 @@
-# Hands-free Lecteur
+# Switch / tête + mains libres
 
 ```js
-import { bootHandsFreeLecteur } from './components/index.js';
+import {
+  bootHandsFreeLecteur,
+  bindSwitchKeys,
+} from './components/index.js';
 
-const hf = bootHandsFreeLecteur({
-  readerEl: document.getElementById('reader'),
-  lang: 'fr',
-  voice: true,
-  onNext: goNext,
-  onPrev: goPrev,
-});
-// Voix : « suivant », « scan », « valider », « aide »
-// Tête/switch : hf.seq.next() / hf.seq.select()
+const hf = bootHandsFreeLecteur({ readerEl, lang: 'fr', onNext, onPrev });
+
+// 2 switches (tête) : Espace = scan, Entrée = valider
+const stop = bindSwitchKeys({ seq: hf.seq, mode: 'two' });
+
+// 1 switch : appui court = suivant, long = valider
+// bindSwitchKeys({ seq: hf.seq, mode: 'one', longPressMs: 700 });
 ```
-
-See `docs/17-Eyes-Head-Voice-Access.md`.

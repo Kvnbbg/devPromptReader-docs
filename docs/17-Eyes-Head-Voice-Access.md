@@ -1,28 +1,30 @@
-# 17 — Accès : yeux, tête, voix (motricité très limitée)
+# 17 — Accès : yeux, tête, voix
 
-Public : personnes qui **voient**, peuvent bouger la **tête** et/ou utiliser la **voix**, avec peu ou pas d’usage des mains.
+## Modules
 
-## Couches (du système vers l’app)
+| Module | Rôle |
+|--------|------|
+| sequential-nav.js | Scan + select |
+| switch-keys.js | **1 ou 2 switches** (Espace/Entrée ou long-press) |
+| voice-commands.js | Reconnaissance vocale navigateur |
+| gaze-friendly.js | 48px + dwell |
+| handsfree-lecteur-boot.js | Boot unique |
 
-1. **OS / matériel** (prioritaire)
-   - Windows : Eye Control, Voice Access
-   - macOS / iOS : Voice Control, Switch Control, Eye Tracking (selon appareil)
-   - Android : Switch Access, Voice Access
-   - Solutions gaze (Tobii, etc.) qui exposent un **curseur** ou un **switch**
+## 2 switches (recommandé tête)
 
-2. **App Lecteur** (ce que nous fournissons)
-   - Tout actionnable au **clavier** (déjà : `bindLecteurKeys`, skip link)
-   - **Navigation séquentielle** (1–2 switches / appui tête) : `sequential-nav.js`
-   - **Commandes vocales** in-app (Web Speech API, si dispo) : `voice-commands.js`
-   - **Dwell / regard** : cibles larges, pas d’action au seul hover, délais longs : `gaze-friendly.js`
-   - Annonces SR + labels stables pour que le contrôle vocal OS reconnaisse les boutons
+- Switch A → `seq.next()` (scan)
+- Switch B → `seq.select()` (valider)
 
-## Principe
+```js
+bindSwitchKeys({ seq: hf.seq, mode: 'two' });
+```
 
-L’app ne remplace pas un eye-tracker médical. Elle reste **compatible** : focus clair, gros boutons, noms accessibles, mode séquentiel, voix optionnelle.
+## 1 switch
 
-## Psycho
+- Court → suivant · Long → valider
 
-- Pas de limite de temps agressive
-- Confirmation vocale / visuelle avant action destructive
-- « Répéter » / « Annuler » toujours disponibles
+```js
+bindSwitchKeys({ seq: hf.seq, mode: 'one', longPressMs: 700 });
+```
+
+OS Voice Access / Eye Control restent prioritaires pour le curseur global.

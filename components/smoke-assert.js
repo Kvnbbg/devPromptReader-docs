@@ -1,5 +1,5 @@
 /**
- * Smoke checks including a11y + parrainage.
+ * Smoke including hands-free APIs.
  * @module smoke-assert
  */
 
@@ -24,6 +24,10 @@ import { THEMES, cycleTheme } from './reader-theme.js';
 import { getParrainageCopy, isPressureCopy } from './parrainage-a11y-copy.js';
 import { LECTEUR_KEYS } from './a11y-keyboard.js';
 import { prefersReducedMotion } from './a11y-motion.js';
+import { createSequentialNav } from './sequential-nav.js';
+import { defaultCommandMap } from './voice-commands.js';
+import { GAZE_MIN_PX } from './gaze-friendly.js';
+import { EYE_MODES } from './eye-comfort.js';
 
 export function runSmokeAssert() {
   const checks = {};
@@ -149,6 +153,27 @@ export function runSmokeAssert() {
 
   check('reducedMotionApi', function () {
     return typeof prefersReducedMotion() === 'boolean';
+  });
+
+  check('sequentialNav', function () {
+    const seq = createSequentialNav({});
+    seq.next();
+    seq.select();
+    seq.destroy();
+    return true;
+  });
+
+  check('voiceMap', function () {
+    const m = defaultCommandMap('fr');
+    return m.next && m.next.indexOf('suivant') !== -1;
+  });
+
+  check('gazeMin', function () {
+    return GAZE_MIN_PX >= 48;
+  });
+
+  check('eyeModes', function () {
+    return !!EYE_MODES.deuteranopia && !!EYE_MODES.soft;
   });
 
   return { ok: errors.length === 0, checks: checks, errors: errors };

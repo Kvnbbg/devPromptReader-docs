@@ -1,14 +1,12 @@
 # devPromptReader Documentation
 
-## Mains libres — yeux, tête, voix (v2.2.0)
+**v2.2.1** — `switch-keys.js` (1/2 switch tête) + smoke mains libres.
 
 ```js
-import { bootHandsFreeLecteur } from './components/index.js';
+import { bootHandsFreeLecteur, bindSwitchKeys } from './components/index.js';
 ```
 
-[docs/17-Eyes-Head-Voice-Access.md](docs/17-Eyes-Head-Voice-Access.md)
-
-Symbiose OS (Voice Access / Switch Control / Eye Control) + modules app.
+Symbiose OK.
 
 ---
 

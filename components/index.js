@@ -133,4 +133,5 @@ export {
   attachDwell,
 } from './gaze-friendly.js';
 export { bootHandsFreeLecteur } from './handsfree-lecteur-boot.js';
+export { bindSwitchKeys } from './switch-keys.js';
 export { runSmokeAssert } from './smoke-assert.js';
