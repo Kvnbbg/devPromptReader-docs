@@ -1,0 +1,11 @@
+{
+  "mantras": [
+    { "id": "m1", "fr": "On avance doucement, mais on avance.", "en": "We move gently, but we move." },
+    { "id": "m2", "fr": "On se choisit, encore.", "en": "We choose ourselves, again." },
+    { "id": "m3", "fr": "On ne force pas ; on suit le courant.", "en": "We do not force; we follow the current." },
+    { "id": "m4", "fr": "Ralentir, c’est parfois durer.", "en": "Slowing down is sometimes how we last." },
+    { "id": "m5", "fr": "On reste fidèles à nos origines.", "en": "We stay true to our origins." },
+    { "id": "m6", "fr": "Un geste local, un geste doux.", "en": "One local act, one gentle act." },
+    { "id": "m7", "fr": "Recover & heal : on a le droit de se soigner.", "en": "Recover and heal: we are allowed to care for ourselves." }
+  ]
+}

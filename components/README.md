@@ -1,16 +1,19 @@
-# Switch / tête + mains libres
+# Sanctuary modules
 
 ```js
 import {
-  bootHandsFreeLecteur,
-  bindSwitchKeys,
+  pickMantra,
+  listRituals,
+  setRitualItemDone,
+  createRecoverSession,
 } from './components/index.js';
 
-const hf = bootHandsFreeLecteur({ readerEl, lang: 'fr', onNext, onPrev });
+console.log(pickMantra('fr'));
+const rituals = listRituals('fr');
+setRitualItemDone('morning_soft_start', 0, true);
 
-// 2 switches (tête) : Espace = scan, Entrée = valider
-const stop = bindSwitchKeys({ seq: hf.seq, mode: 'two' });
-
-// 1 switch : appui court = suivant, long = valider
-// bindSwitchKeys({ seq: hf.seq, mode: 'one', longPressMs: 700 });
+const rh = createRecoverSession('fr');
+rh.setFeeling('fatigué');
+rh.next(); // breathe → write → ritual → close
+rh.complete();
 ```

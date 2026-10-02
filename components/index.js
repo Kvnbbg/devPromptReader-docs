@@ -134,4 +134,15 @@ export {
 } from './gaze-friendly.js';
 export { bootHandsFreeLecteur } from './handsfree-lecteur-boot.js';
 export { bindSwitchKeys } from './switch-keys.js';
+export { pickMantra, listMantras } from './sanctuary-mantra.js';
+export {
+  listRituals,
+  setRitualItemDone,
+  resetRitualProgress,
+} from './ritual-todo.js';
+export {
+  createRecoverSession,
+  listRecoverSessions,
+  clearRecoverSessions,
+} from './recover-heal.js';
 export { runSmokeAssert } from './smoke-assert.js';

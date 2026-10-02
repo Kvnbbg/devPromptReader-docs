@@ -1,10 +1,14 @@
 # devPromptReader Documentation
 
-**v2.2.1** — `switch-keys.js` (1/2 switch tête) + smoke mains libres.
+## Sanctuaire dry (v2.3.0)
+
+Mantras, rituels préremplis, recover & heal — local, doux, sans culpabilité.
 
 ```js
-import { bootHandsFreeLecteur, bindSwitchKeys } from './components/index.js';
+import { pickMantra, listRituals, createRecoverSession } from './components/index.js';
 ```
+
+[docs/18-Sanctuary-Rituals.md](docs/18-Sanctuary-Rituals.md)
 
 Symbiose OK.
 

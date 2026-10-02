@@ -1,12 +1,13 @@
-# MANIFEST v2.2.1 — complete hands-free pack
+# MANIFEST v2.3.0
 
-| File | Status |
-|------|--------|
-| sequential-nav.js | present |
-| voice-commands.js | present |
-| gaze-friendly.js | present |
-| handsfree-lecteur-boot.js | present |
-| **switch-keys.js** | present (1/2-switch → seq nav) |
-| eye-comfort.js | present |
-| a11y-* / lecteur-a11y-boot | present |
-| index.js | barrel updated |
+Sanctuary (new):
+
+| File | Role |
+|------|------|
+| sanctuary-mantra.js | Daily mantra |
+| ritual-todo.js | Pre-filled rituals |
+| recover-heal.js | Recover wizard |
+
+Data: `data/sanctuary-*.json`
+
+Prior: a11y, hands-free, Lecteur, SEO, payment — unchanged.
