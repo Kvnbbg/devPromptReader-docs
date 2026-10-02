@@ -1,5 +1,6 @@
 /**
  * Barrel — autonomous ES modules, no compilation.
+ * Includes a11y + Lecteur + Parrainage.
  * @module components/index
  */
 
@@ -93,4 +94,22 @@ export {
   applyReaderTheme,
   cycleTheme,
 } from './reader-theme.js';
+export { announce } from './a11y-live-region.js';
+export { trapFocus } from './a11y-focus-trap.js';
+export {
+  LECTEUR_KEYS,
+  bindLecteurKeys,
+  ensureSkipLink,
+} from './a11y-keyboard.js';
+export {
+  ensureContrastStyles,
+  setHighContrast,
+  systemPrefersMoreContrast,
+} from './a11y-contrast.js';
+export { prefersReducedMotion, runWithMotionPreference } from './a11y-motion.js';
+export {
+  getParrainageCopy,
+  isPressureCopy,
+  PARRAINAGE_FORBIDDEN_PATTERNS,
+} from './parrainage-a11y-copy.js';
 export { runSmokeAssert } from './smoke-assert.js';

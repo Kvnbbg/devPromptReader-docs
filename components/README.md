@@ -1,19 +1,25 @@
-# Components — Lecteur (no compile)
+# Components + a11y
 
 ```js
 import {
-  applyLecteurSeoBoost,
-  enhanceSearchBar,
+  ensureSkipLink,
+  bindLecteurKeys,
+  announce,
+  setHighContrast,
+  getParrainageCopy,
   applyReaderTheme,
   createAutoScroll,
-  attachSwipe,
-  runSmokeAssert,
 } from './components/index.js';
 
-applyReaderTheme(document.getElementById('reader'), {
-  theme: 'dark',
-  fontSize: 'lg',
+ensureSkipLink('main');
+bindLecteurKeys(document, {
+  onNext: goNext,
+  onPrev: goPrev,
+  onPauseScroll: function () { sc.pause(); },
 });
+setHighContrast(readerEl, true);
+announce('Page suivante');
+const copy = getParrainageCopy('fr');
 ```
 
-See MANIFEST.md · docs/15-SEO-SearchBar-Dry.md
+Docs: `docs/16-A11y-Full-App.md` · pack `agents/a11y/`

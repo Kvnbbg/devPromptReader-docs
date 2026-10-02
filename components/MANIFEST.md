@@ -1,35 +1,12 @@
-# components/ MANIFEST — complete
+# MANIFEST — includes a11y 2.0.0
 
-**Principle:** autonomous JS — ready, secure, no compilation, aligned with packs.
+| a11y module | Role |
+|-------------|------|
+| a11y-live-region.js | Screen reader announcements |
+| a11y-focus-trap.js | Modal keyboard trap |
+| a11y-keyboard.js | Lecteur keys + skip link |
+| a11y-contrast.js | High contrast |
+| a11y-motion.js | reduced-motion |
+| parrainage-a11y-copy.js | Referral psycho-safe copy |
 
-| File | Status |
-|------|--------|
-| safe-storage.js | present |
-| soft-notice.js | present |
-| boosters.js | present |
-| chronos-lives.js | present |
-| hospital-state.js | present |
-| integrate.js | present |
-| dashboard-dry.js | present |
-| money-quest-progress.js | present |
-| checkout-guard.js | present |
-| access-proof.js | present |
-| server-validate.js | present |
-| checkout-session-options.js | present |
-| require-auth-gate.js | present |
-| orientation-media.js | present |
-| touch-targets.js | present |
-| touch-listeners.js | present |
-| touch-swipe.js | present |
-| touch-press.js | present |
-| reader-auto-scroll.js | present |
-| seo-head-dry.js | present |
-| seo-json-ld.js | present |
-| seo-boost-dry.js | present |
-| search-bar-fx.js | present |
-| reader-theme.js | present |
-| smoke-assert.js | present |
-| index.js | present |
-| example-usage.html | present |
-
-Entry: `index.js`
+Plus prior Lecteur / SEO / touch / payment modules. Entry: `index.js`

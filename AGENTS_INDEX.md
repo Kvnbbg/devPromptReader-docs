@@ -2,7 +2,8 @@
 
 | Need | Path |
 |------|------|
-| SEO + search bar FX | `agents/seo/`, `components/seo-*.js`, `search-bar-fx.js` |
+| **a11y full app** | `agents/a11y/`, `docs/16-A11y-Full-App.md` |
 | Lecteur modules | `components/` |
-| Touch / auto-scroll | `touch-*.js`, `reader-auto-scroll.js` |
-| Payment / fraud | `ops/` |
+| Parrainage copy | `parrainage-a11y-copy.js` |
+| SEO | `agents/seo/` |
+| Nav debt | `agents/nav/` |
