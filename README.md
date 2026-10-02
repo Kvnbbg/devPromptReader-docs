@@ -1,13 +1,13 @@
 # devPromptReader Documentation
 
-## Sanctuaire (v2.3.1)
-
-Données vérifiées · `openSanctuaryLite('fr')` · perf low-end (1 read storage).
+## Sanctuaire écran unique (v2.4.0)
 
 ```js
-import { openSanctuaryLite } from './components/index.js';
-const view = openSanctuaryLite('fr');
+import { mountSanctuaryScreen } from './components/index.js';
+mountSanctuaryScreen(document.getElementById('app'), { lang: 'fr' });
 ```
+
+Symbiose OK — additive, no compile.
 
 ---
 

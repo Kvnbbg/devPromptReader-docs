@@ -1,13 +1,9 @@
-# MANIFEST v2.3.0
+# MANIFEST v2.4.0
 
-Sanctuary (new):
+| New | Role |
+|-----|------|
+| mount-sanctuary-screen.js | Single light DOM screen |
+| sanctuary-opener.js | Sync first paint |
+| sanctuary-mantra / ritual-todo / recover-heal | Data logic |
 
-| File | Role |
-|------|------|
-| sanctuary-mantra.js | Daily mantra |
-| ritual-todo.js | Pre-filled rituals |
-| recover-heal.js | Recover wizard |
-
-Data: `data/sanctuary-*.json`
-
-Prior: a11y, hands-free, Lecteur, SEO, payment — unchanged.
+Prior packs unchanged.

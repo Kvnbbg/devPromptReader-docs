@@ -146,4 +146,5 @@ export {
   clearRecoverSessions,
 } from './recover-heal.js';
 export { openSanctuaryLite } from './sanctuary-opener.js';
+export { mountSanctuaryScreen } from './mount-sanctuary-screen.js';
 export { runSmokeAssert } from './smoke-assert.js';

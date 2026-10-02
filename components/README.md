@@ -1,19 +1,10 @@
-# Sanctuary modules
+# Sanctuary screen
 
 ```js
-import {
-  pickMantra,
-  listRituals,
-  setRitualItemDone,
-  createRecoverSession,
-} from './components/index.js';
+import { mountSanctuaryScreen } from './components/index.js';
 
-console.log(pickMantra('fr'));
-const rituals = listRituals('fr');
-setRitualItemDone('morning_soft_start', 0, true);
-
-const rh = createRecoverSession('fr');
-rh.setFeeling('fatigué');
-rh.next(); // breathe → write → ritual → close
-rh.complete();
+const ui = mountSanctuaryScreen(document.getElementById('app'), { lang: 'fr' });
+// ui.refresh() · ui.destroy()
 ```
+
+First paint: opener + mantra + rituals only. Recover loads on button.
