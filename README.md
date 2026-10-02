@@ -1,16 +1,13 @@
 # devPromptReader Documentation
 
-## Sanctuaire dry (v2.3.0)
+## Sanctuaire (v2.3.1)
 
-Mantras, rituels préremplis, recover & heal — local, doux, sans culpabilité.
+Données vérifiées · `openSanctuaryLite('fr')` · perf low-end (1 read storage).
 
 ```js
-import { pickMantra, listRituals, createRecoverSession } from './components/index.js';
+import { openSanctuaryLite } from './components/index.js';
+const view = openSanctuaryLite('fr');
 ```
-
-[docs/18-Sanctuary-Rituals.md](docs/18-Sanctuary-Rituals.md)
-
-Symbiose OK.
 
 ---
 

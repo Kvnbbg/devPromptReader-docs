@@ -1,5 +1,6 @@
 /**
- * Pre-filled ritual checklists — device-first persistence.
+ * Pre-filled ritual checklists — device-first, low-end friendly.
+ * One localStorage read per listRituals() call (no lag loops).
  * @module ritual-todo
  */
 
@@ -71,29 +72,32 @@ function saveState(s) {
  * @param {'fr'|'en'} [lang]
  */
 export function listRituals(lang) {
-  return DEFAULT_RITUALS.map(function (r) {
-    return {
-      id: r.id,
-      category: r.category,
-      label: lang === 'en' ? r.labelEn : r.labelFr,
-      items: (lang === 'en' ? r.itemsEn : r.itemsFr).map(function (text, i) {
-        const st = loadState();
-        const key = r.id + ':' + i;
-        return {
-          index: i,
-          text: text,
-          done: !!(st[key] && st[key].done),
-        };
-      }),
-    };
-  });
+  const st = loadState();
+  const en = lang === 'en';
+  const out = [];
+  for (let r = 0; r < DEFAULT_RITUALS.length; r++) {
+    const ritual = DEFAULT_RITUALS[r];
+    const texts = en ? ritual.itemsEn : ritual.itemsFr;
+    const items = [];
+    for (let i = 0; i < texts.length; i++) {
+      const key = ritual.id + ':' + i;
+      const cell = st[key];
+      items.push({
+        index: i,
+        text: texts[i],
+        done: !!(cell && cell.done),
+      });
+    }
+    out.push({
+      id: ritual.id,
+      category: ritual.category,
+      label: en ? ritual.labelEn : ritual.labelFr,
+      items: items,
+    });
+  }
+  return out;
 }
 
-/**
- * @param {string} ritualId
- * @param {number} itemIndex
- * @param {boolean} done
- */
 export function setRitualItemDone(ritualId, itemIndex, done) {
   const st = loadState();
   const key = String(ritualId) + ':' + String(itemIndex);
@@ -108,8 +112,9 @@ export function setRitualItemDone(ritualId, itemIndex, done) {
 export function resetRitualProgress(ritualId) {
   const st = loadState();
   const prefix = String(ritualId) + ':';
-  Object.keys(st).forEach(function (k) {
-    if (k.indexOf(prefix) === 0) delete st[k];
-  });
+  const keys = Object.keys(st);
+  for (let i = 0; i < keys.length; i++) {
+    if (keys[i].indexOf(prefix) === 0) delete st[keys[i]];
+  }
   saveState(st);
 }
