@@ -2,8 +2,6 @@
 
 | Need | Path |
 |------|------|
-| **a11y full app** | `agents/a11y/`, `docs/16-A11y-Full-App.md` |
-| Lecteur modules | `components/` |
-| Parrainage copy | `parrainage-a11y-copy.js` |
-| SEO | `agents/seo/` |
-| Nav debt | `agents/nav/` |
+| a11y + **yeux** | `agents/a11y/`, `eye-comfort.js` |
+| Lecteur boot | `lecteur-a11y-boot.js` |
+| Parrainage | `parrainage-a11y-copy.js` |

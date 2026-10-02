@@ -1,40 +1,29 @@
 # 16 — Accessibilité web app (a11y)
 
-Cible : **toute** l’app, avec priorité **Lecteur (devPromptReader)** et **Parrainage**.
+Cible : **toute** l’app, priorité **Lecteur** et **Parrainage**.
 
 ## Publics
 
-| Public | Besoins principaux |
-|--------|-------------------|
-| Tétraplégie / motricité limitée | Clavier / switch / commande vocale ; cibles ≥ 44px (idéalement 48+) ; pas de gestes multi-doigts obligatoires ; focus visible ; délais longs ou annulables |
-| Sourds / malentendants | Pas d’info **uniquement** sonore ; sous-titres / transcription ; indicateurs visuels |
-| Aveugles / malvoyants | Structure sémantique, ARIA, contrastes, zoom 200 %, lecteurs d’écran, thèmes fort contraste |
-| Charge cognitive / psycho | Parcours courts, messages calmes, pas de FOMO agressif, skip, confirmation claire (surtout Parrainage) |
+| Public | Besoins |
+|--------|---------|
+| Tétraplégie | Clavier / switch, cibles 44–48px, focus visible |
+| Sourds / HoH | Pas d’info uniquement sonore |
+| Aveugles / malvoyants | SR, contraste, zoom, thèmes |
+| **Yeux / daltonisme / fatigue** | `eye-comfort.js` : soft, protanopie, deutéranopie, tritanopie, gris + taille |
+| Charge cognitive | Parrainage non culpabilisant |
 
-## Norme de travail
+## Modules
 
-Viser **WCAG 2.2 niveau AA** sur les écrans Lecteur et Parrainage, puis étendre.
+`a11y-*`, `lecteur-a11y-boot.js`, `parrainage-a11y-copy.js`, **`eye-comfort.js`**, `reader-theme.js`
 
-## Modules code (no build)
+## Yeux — exemple
 
-| Fichier | Rôle |
-|---------|------|
-| `a11y-focus-trap.js` | Piège focus modales + restauration |
-| `a11y-live-region.js` | Annonces `aria-live` (sans spam) |
-| `a11y-keyboard.js` | Raccourcis Lecteur documentés, skip link |
-| `a11y-contrast.js` | Thème high-contrast + prefers-contrast |
-| `a11y-motion.js` | Respect `prefers-reduced-motion` |
-| `parrainage-a11y-copy.js` | Textes Parrainage non culpabilisantes |
-
-## Psycho — Lecteur
-
-- Vitesse auto-scroll **réglable** et **pause** immédiate (espace / bouton).
-- Pas de défilement forcé non interruptible.
-- Thèmes white / light / dark / blue déjà fournis ; ajouter **high-contrast**.
-
-## Psycho — Parrainage
-
-- Formuler l’invitation comme **choix**, pas obligation.
-- Éviter compteurs anxiogènes, timers artificiels, « tes amis te jugent ».
-- Erreurs récupérables ; succès discrètement confirmé (live region).
-- Alternative : partager plus tard / ignorer sans pénalité visible.
+```js
+import { applyEyeComfort, cycleEyeMode } from './components/index.js';
+applyEyeComfort(readerEl, {
+  mode: 'deuteranopia',
+  theme: 'dark',
+  fontSize: 'lg',
+  highContrast: false,
+}, { lang: 'fr' });
+```

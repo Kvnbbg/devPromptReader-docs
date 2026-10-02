@@ -1,18 +1,16 @@
-# Components — Lecteur a11y boot
+# Components
+
+## Confort des yeux
 
 ```js
-import { bootLecteurA11y, getParrainageCopy, runSmokeAssert } from './components/index.js';
+import { applyEyeComfort, cycleEyeMode, EYE_MODES } from './components/index.js';
 
-const session = bootLecteurA11y({
-  mainId: 'main',
-  readerEl: document.getElementById('reader'),
-  highContrast: true,
-  autoScroll: true,
-  lang: 'fr',
-  onNext: goNext,
-  onPrev: goPrev,
-});
-// Space toggles scroll pause; session.destroy() on unmount
+applyEyeComfort(readerEl, {
+  mode: 'soft', // none | soft | protanopia | deuteranopia | tritanopia | grayscale
+  theme: 'dark',
+  fontSize: 'xl',
+  highContrast: false,
+}, { lang: 'fr' });
 ```
 
-Docs: `docs/16-A11y-Full-App.md`
+Filtres approximatifs — pas un dispositif médical.

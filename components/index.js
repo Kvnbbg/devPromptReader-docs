@@ -112,4 +112,13 @@ export {
   PARRAINAGE_FORBIDDEN_PATTERNS,
 } from './parrainage-a11y-copy.js';
 export { bootLecteurA11y } from './lecteur-a11y-boot.js';
+export {
+  EYE_MODES,
+  ensureEyeComfortAssets,
+  defaultEyeComfort,
+  loadEyeComfort,
+  saveEyeComfort,
+  applyEyeComfort,
+  cycleEyeMode,
+} from './eye-comfort.js';
 export { runSmokeAssert } from './smoke-assert.js';

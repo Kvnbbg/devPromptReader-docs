@@ -1,14 +1,14 @@
 # devPromptReader Documentation
 
-## a11y + Lecteur (v2.0.1)
+## Confort des yeux (v2.1.0)
 
 ```js
-import { bootLecteurA11y, getParrainageCopy } from './components/index.js';
+import { applyEyeComfort, cycleEyeMode } from './components/index.js';
 ```
 
-One-call: skip link, keyboard (tétraplégie), high contrast, motion-aware scroll.
+Modes : normal, doux, protanopie, deutéranopie, tritanopie, niveaux de gris + thèmes / contraste / taille.
 
-Symbiose OK — additive only.
+Symbiose OK.
 
 ---
 
