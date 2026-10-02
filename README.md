@@ -1,14 +1,14 @@
 # devPromptReader Documentation
 
-## Confort des yeux (v2.1.0)
+## Mains libres — yeux, tête, voix (v2.2.0)
 
 ```js
-import { applyEyeComfort, cycleEyeMode } from './components/index.js';
+import { bootHandsFreeLecteur } from './components/index.js';
 ```
 
-Modes : normal, doux, protanopie, deutéranopie, tritanopie, niveaux de gris + thèmes / contraste / taille.
+[docs/17-Eyes-Head-Voice-Access.md](docs/17-Eyes-Head-Voice-Access.md)
 
-Symbiose OK.
+Symbiose OS (Voice Access / Switch Control / Eye Control) + modules app.
 
 ---
 

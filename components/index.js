@@ -121,4 +121,16 @@ export {
   applyEyeComfort,
   cycleEyeMode,
 } from './eye-comfort.js';
+export {
+  collectActionables,
+  createSequentialNav,
+} from './sequential-nav.js';
+export { defaultCommandMap, createVoiceCommands } from './voice-commands.js';
+export {
+  GAZE_MIN_PX,
+  DEFAULT_DWELL_MS,
+  enlargeTargetsForGaze,
+  attachDwell,
+} from './gaze-friendly.js';
+export { bootHandsFreeLecteur } from './handsfree-lecteur-boot.js';
 export { runSmokeAssert } from './smoke-assert.js';

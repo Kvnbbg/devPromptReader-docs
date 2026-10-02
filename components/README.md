@@ -1,16 +1,17 @@
-# Components
-
-## Confort des yeux
+# Hands-free Lecteur
 
 ```js
-import { applyEyeComfort, cycleEyeMode, EYE_MODES } from './components/index.js';
+import { bootHandsFreeLecteur } from './components/index.js';
 
-applyEyeComfort(readerEl, {
-  mode: 'soft', // none | soft | protanopia | deuteranopia | tritanopia | grayscale
-  theme: 'dark',
-  fontSize: 'xl',
-  highContrast: false,
-}, { lang: 'fr' });
+const hf = bootHandsFreeLecteur({
+  readerEl: document.getElementById('reader'),
+  lang: 'fr',
+  voice: true,
+  onNext: goNext,
+  onPrev: goPrev,
+});
+// Voix : « suivant », « scan », « valider », « aide »
+// Tête/switch : hf.seq.next() / hf.seq.select()
 ```
 
-Filtres approximatifs — pas un dispositif médical.
+See `docs/17-Eyes-Head-Voice-Access.md`.
