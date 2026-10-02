@@ -1,25 +1,18 @@
-# Components + a11y
+# Components — Lecteur a11y boot
 
 ```js
-import {
-  ensureSkipLink,
-  bindLecteurKeys,
-  announce,
-  setHighContrast,
-  getParrainageCopy,
-  applyReaderTheme,
-  createAutoScroll,
-} from './components/index.js';
+import { bootLecteurA11y, getParrainageCopy, runSmokeAssert } from './components/index.js';
 
-ensureSkipLink('main');
-bindLecteurKeys(document, {
+const session = bootLecteurA11y({
+  mainId: 'main',
+  readerEl: document.getElementById('reader'),
+  highContrast: true,
+  autoScroll: true,
+  lang: 'fr',
   onNext: goNext,
   onPrev: goPrev,
-  onPauseScroll: function () { sc.pause(); },
 });
-setHighContrast(readerEl, true);
-announce('Page suivante');
-const copy = getParrainageCopy('fr');
+// Space toggles scroll pause; session.destroy() on unmount
 ```
 
-Docs: `docs/16-A11y-Full-App.md` · pack `agents/a11y/`
+Docs: `docs/16-A11y-Full-App.md`

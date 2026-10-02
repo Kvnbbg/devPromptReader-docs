@@ -1,5 +1,5 @@
 /**
- * Smoke checks — browser or Node with localStorage mock.
+ * Smoke checks including a11y + parrainage.
  * @module smoke-assert
  */
 
@@ -21,6 +21,9 @@ import { kindRequiresAuth } from './require-auth-gate.js';
 import { lecteurAppJsonLd, breadcrumbJsonLd } from './seo-json-ld.js';
 import { SEO_DRY_CHECKLIST } from './seo-boost-dry.js';
 import { THEMES, cycleTheme } from './reader-theme.js';
+import { getParrainageCopy, isPressureCopy } from './parrainage-a11y-copy.js';
+import { LECTEUR_KEYS } from './a11y-keyboard.js';
+import { prefersReducedMotion } from './a11y-motion.js';
 
 export function runSmokeAssert() {
   const checks = {};
@@ -129,6 +132,23 @@ export function runSmokeAssert() {
 
   check('readerTheme', function () {
     return THEMES.indexOf('dark') !== -1 && cycleTheme('white') === 'light';
+  });
+
+  check('parrainageCopy', function () {
+    const c = getParrainageCopy('fr');
+    return c.later && c.skip && !isPressureCopy(c.body);
+  });
+
+  check('parrainagePressureDetect', function () {
+    return isPressureCopy('dernière chance') === true;
+  });
+
+  check('lecteurKeys', function () {
+    return LECTEUR_KEYS.next.indexOf('ArrowRight') !== -1;
+  });
+
+  check('reducedMotionApi', function () {
+    return typeof prefersReducedMotion() === 'boolean';
   });
 
   return { ok: errors.length === 0, checks: checks, errors: errors };

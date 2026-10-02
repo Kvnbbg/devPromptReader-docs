@@ -1,6 +1,5 @@
 /**
  * Barrel — autonomous ES modules, no compilation.
- * Includes a11y + Lecteur + Parrainage.
  * @module components/index
  */
 
@@ -112,4 +111,5 @@ export {
   isPressureCopy,
   PARRAINAGE_FORBIDDEN_PATTERNS,
 } from './parrainage-a11y-copy.js';
+export { bootLecteurA11y } from './lecteur-a11y-boot.js';
 export { runSmokeAssert } from './smoke-assert.js';
