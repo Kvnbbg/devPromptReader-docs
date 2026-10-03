@@ -1,7 +1,8 @@
-# MANIFEST v2.8.0
+# MANIFEST v2.8.1
 
-| Game Lab | Role |
+| Math Lab | Role |
 |----------|------|
-| mental-calc.js | questions + grading |
-| mental-calc-session.js | challenge session + chronos |
+| mental-calc.js | generate + grade |
+| mental-calc-session.js | chronos session |
+| **mount-mental-lab-screen.js** | DOM UI challenge |
 | data/mental-calc-levels.json | levels |

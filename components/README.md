@@ -1,9 +1,11 @@
-# Math Lab — calcul mental
+# Math Lab UI
 
 ```js
-import { createMentalCalcSession } from './components/index.js';
+import { mountMentalLabScreen } from './components/index.js';
 
-const lab = createMentalCalcSession({ difficulty: 'medium', lang: 'fr' });
-console.log(lab.getChallenge().promptFr);
-lab.submit(42);
+mountMentalLabScreen(document.getElementById('lab'), {
+  difficulty: 'medium',
+  lang: 'fr',
+  recordToMoneyQuest: true,
+});
 ```

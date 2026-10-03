@@ -199,4 +199,5 @@ export {
   generateRound,
 } from './mental-calc.js';
 export { createMentalCalcSession } from './mental-calc-session.js';
+export { mountMentalLabScreen } from './mount-mental-lab-screen.js';
 export { runSmokeAssert } from './smoke-assert.js';

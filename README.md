@@ -1,12 +1,13 @@
 # devPromptReader Documentation
 
-## Math Lab — calcul mental (v2.8.0)
+## Math Lab UI (v2.8.1)
 
 ```js
-import { createMentalCalcSession } from './components/index.js';
+import { mountMentalLabScreen } from './components/index.js';
+mountMentalLabScreen(document.getElementById('lab'), { difficulty: 'easy', lang: 'fr' });
 ```
 
-[docs/23-Mental-Calc-Math-Lab.md](docs/23-Mental-Calc-Math-Lab.md)
+Symbiose OK.
 
 ---
 
