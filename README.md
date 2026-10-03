@@ -1,14 +1,12 @@
 # devPromptReader Documentation
 
-## Math (v2.7.1)
-
-Bézout + Diophantine + safeDivInt · [Division-by-Zero](https://github.com/kvnbbg/Division-by-Zero)
+## Math Lab — calcul mental (v2.8.0)
 
 ```js
-import { solveLinearDiophantine, egcd } from './components/index.js';
+import { createMentalCalcSession } from './components/index.js';
 ```
 
-Symbiose OK.
+[docs/23-Mental-Calc-Math-Lab.md](docs/23-Mental-Calc-Math-Lab.md)
 
 ---
 

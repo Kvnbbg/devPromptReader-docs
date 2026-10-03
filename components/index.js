@@ -193,4 +193,10 @@ export {
   solveLinearDiophantine,
   DIOPHANTINE_EXAMPLES,
 } from './diophantine.js';
+export {
+  generateMentalChallenge,
+  gradeMentalAnswer,
+  generateRound,
+} from './mental-calc.js';
+export { createMentalCalcSession } from './mental-calc-session.js';
 export { runSmokeAssert } from './smoke-assert.js';

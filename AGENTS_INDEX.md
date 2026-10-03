@@ -2,7 +2,6 @@
 
 | Need | Path |
 |------|------|
-| Math Bézout / Diophantine | `agents/math/`, `bezout.js`, `diophantine.js` |
-| Stripe / crédits | `docs/20-Credits-And-Payment-Button.md` |
+| **Calcul mental / Math Lab** | `agents/game/08-mental-calc-lab.md`, `mental-calc*.js` |
+| Bézout | `agents/math/` |
 | a11y | `agents/a11y/` |
-| Sanctuaire | `agents/sanctuary/` |

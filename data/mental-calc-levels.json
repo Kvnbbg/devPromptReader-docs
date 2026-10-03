@@ -1,0 +1,31 @@
+{
+  "levels": [
+    {
+      "id": "lab_easy",
+      "difficulty": "easy",
+      "labelFr": "Échauffement",
+      "labelEn": "Warm-up",
+      "roundSize": 5,
+      "seconds": 60,
+      "lives": 3
+    },
+    {
+      "id": "lab_medium",
+      "difficulty": "medium",
+      "labelFr": "Challenge",
+      "labelEn": "Challenge",
+      "roundSize": 8,
+      "seconds": 90,
+      "lives": 3
+    },
+    {
+      "id": "lab_hard",
+      "difficulty": "hard",
+      "labelFr": "Lab intensif",
+      "labelEn": "Intense lab",
+      "roundSize": 10,
+      "seconds": 120,
+      "lives": 2
+    }
+  ]
+}

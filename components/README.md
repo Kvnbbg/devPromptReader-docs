@@ -1,13 +1,9 @@
-# Math modules
+# Math Lab — calcul mental
 
 ```js
-import {
-  egcd,
-  solveLinearDiophantine,
-  safeDivInt,
-} from './components/index.js';
+import { createMentalCalcSession } from './components/index.js';
 
-egcd(30, 12);
-solveLinearDiophantine(30, 12, 6);
-safeDivInt(10, 0); // { ok: false, error: 'division_by_zero' }
+const lab = createMentalCalcSession({ difficulty: 'medium', lang: 'fr' });
+console.log(lab.getChallenge().promptFr);
+lab.submit(42);
 ```
