@@ -180,4 +180,13 @@ export {
   extractProductKeyFromEvent,
   planWebhookGrant,
 } from './webhook-grant-plan.js';
+export {
+  egcd,
+  gcd,
+  modInverse,
+  safeDivInt,
+  BEZOUT_EXAMPLES,
+  verifyBezoutExample,
+  DIVISION_BY_ZERO_REPO,
+} from './bezout.js';
 export { runSmokeAssert } from './smoke-assert.js';

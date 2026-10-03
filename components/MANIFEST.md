@@ -1,8 +1,8 @@
-# MANIFEST v2.6.1
+# MANIFEST v2.7.0
 
-| Pay pipeline | Role |
-|--------------|------|
-| credits-limits / wallet | 500 Premium + caps |
-| payment-button | client button |
-| **checkout-session-plan** | server session params |
-| **webhook-grant-plan** | server grant decision |
+| Math | Role |
+|------|------|
+| bezout.js | egcd, inverse mod, safeDivInt |
+| data/bezout-examples.json | real numbers |
+
+Link: https://github.com/kvnbbg/Division-by-Zero
