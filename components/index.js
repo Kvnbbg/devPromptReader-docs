@@ -171,4 +171,13 @@ export {
 } from './entitlements-resolve.js';
 export { planGrantFromPayment } from './entitlements-grant-dry.js';
 export { mountPaymentButton, describeOffer } from './payment-button.js';
+export {
+  STRIPE_PRICE_IDS,
+  resolvePriceId,
+  planCheckoutSession,
+} from './checkout-session-plan.js';
+export {
+  extractProductKeyFromEvent,
+  planWebhookGrant,
+} from './webhook-grant-plan.js';
 export { runSmokeAssert } from './smoke-assert.js';

@@ -1,8 +1,8 @@
-# MANIFEST v2.6.0
+# MANIFEST v2.6.1
 
-| Credits / pay | Role |
-|---------------|------|
-| credits-limits.js | 500 Premium / caps |
-| credits-wallet.js | grant spend balance |
-| payment-button.js | Checkout button |
-| entitlements-resolve.js | ready (Premium 500) |
+| Pay pipeline | Role |
+|--------------|------|
+| credits-limits / wallet | 500 Premium + caps |
+| payment-button | client button |
+| **checkout-session-plan** | server session params |
+| **webhook-grant-plan** | server grant decision |

@@ -1,24 +1,19 @@
-# Credits + payment button
+# Checkout + webhook (pure JS)
 
 ```js
 import {
+  planCheckoutSession,
+  planWebhookGrant,
   mountPaymentButton,
-  getBalance,
-  grantMonthlyForProduct,
-  spendCredits,
 } from './components/index.js';
 
-mountPaymentButton(el, {
+// Server:
+const plan = planCheckoutSession({
   productKey: 'premium',
   interval: 'month',
-  lang: 'fr',
-  createSession: async (payload) => {
-    const r = await fetch('/api/create-checkout-session', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-    });
-    return r.json();
-  },
+  successUrl: 'https://www.techandstream.com/pay/success',
+  cancelUrl: 'https://www.techandstream.com/pay/cancel',
+  priceMap: { premium: { month: 'price_xxx', year: 'price_yyy' } },
 });
+// if (plan.ok) stripe.checkout.sessions.create(plan.sessionParams)
 ```
