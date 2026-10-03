@@ -148,6 +148,21 @@ export {
 export { openSanctuaryLite } from './sanctuary-opener.js';
 export { mountSanctuaryScreen } from './mount-sanctuary-screen.js';
 export {
+  CREDIT_GRANTS,
+  CREDIT_WALLET_MAX,
+  CREDIT_SPEND_MAX_PER_ACTION,
+  getMonthlyGrant,
+  clampBalance,
+} from './credits-limits.js';
+export {
+  loadWallet,
+  grantCredits,
+  grantMonthlyForProduct,
+  spendCredits,
+  getBalance,
+  getWalletMax,
+} from './credits-wallet.js';
+export {
   configureEntitlements,
   resolveOffer,
   buildCheckoutMetadata,
@@ -155,4 +170,5 @@ export {
   listProductKeys,
 } from './entitlements-resolve.js';
 export { planGrantFromPayment } from './entitlements-grant-dry.js';
+export { mountPaymentButton, describeOffer } from './payment-button.js';
 export { runSmokeAssert } from './smoke-assert.js';

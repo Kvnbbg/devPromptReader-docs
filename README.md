@@ -1,14 +1,16 @@
 # devPromptReader Documentation
 
-## Stripe entitlements (v2.5.0)
+## Crédits + bouton paiement (v2.6.0)
 
-Matrice prix → droits documentée. Boutons **pas** reliés tant que Premium crédits non fixés.
+- Premium : **500 crédits / mois**
+- Studio / Train : accès app, **0** crédit hub
+- Plafond wallet 20 000 · max action 1 000
 
 ```js
-import { resolveOffer, planGrantFromPayment } from './components/index.js';
+import { mountPaymentButton, getBalance } from './components/index.js';
 ```
 
-→ [docs/19-Stripe-Entitlements.md](docs/19-Stripe-Entitlements.md)
+[docs/20-Credits-And-Payment-Button.md](docs/20-Credits-And-Payment-Button.md)
 
 ---
 

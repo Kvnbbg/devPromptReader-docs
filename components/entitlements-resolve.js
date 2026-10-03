@@ -1,15 +1,15 @@
 /**
- * Resolve what a paid offer must grant — client-safe reference map.
- * Server webhook remains source of truth for writes.
+ * Resolve paid offers — Premium credits fixed at 500/month.
  * @module entitlements-resolve
  */
 
-/** Default matrix (override via configureEntitlements). */
+import { getMonthlyGrant } from './credits-limits.js';
+
 const DEFAULT_OFFERS = {
   premium: {
     product_key: 'premium',
     entitlement: 'premium',
-    credits_per_month: null,
+    credits_per_month: 500,
     apps: [],
     amounts: { month: 4.99, year: 39.99 },
   },
@@ -31,34 +31,22 @@ const DEFAULT_OFFERS = {
 
 let offers = Object.assign({}, DEFAULT_OFFERS);
 
-/**
- * @param {Partial<typeof DEFAULT_OFFERS>} map
- */
 export function configureEntitlements(map) {
   if (!map || typeof map !== 'object') return;
   offers = Object.assign({}, DEFAULT_OFFERS, map);
 }
 
-/**
- * @param {string} productKey
- * @param {'month'|'year'} [interval]
- * @returns {null | {
- *   product_key: string,
- *   entitlement: string,
- *   credits_per_month: number|null,
- *   apps: string[],
- *   amount_eur: number|null,
- *   ready_for_checkout: boolean,
- *   blockers: string[],
- * }}
- */
 export function resolveOffer(productKey, interval) {
   const key = String(productKey || '');
   const o = offers[key];
   if (!o) return null;
   const iv = interval === 'year' ? 'year' : 'month';
+  const credits =
+    o.credits_per_month != null
+      ? o.credits_per_month
+      : getMonthlyGrant(key);
   const blockers = [];
-  if (o.credits_per_month === null) {
+  if (credits === null || typeof credits !== 'number') {
     blockers.push('credits_per_month_not_set');
   }
   const amount =
@@ -66,19 +54,14 @@ export function resolveOffer(productKey, interval) {
   return {
     product_key: o.product_key,
     entitlement: o.entitlement,
-    credits_per_month: o.credits_per_month,
+    credits_per_month: credits,
     apps: (o.apps || []).slice(),
     amount_eur: amount,
-    ready_for_checkout: blockers.length === 0,
+    ready_for_checkout: blockers.length === 0 && amount != null,
     blockers: blockers,
   };
 }
 
-/**
- * Build Checkout metadata to attach server-side.
- * @param {string} productKey
- * @param {'month'|'year'} interval
- */
 export function buildCheckoutMetadata(productKey, interval) {
   const r = resolveOffer(productKey, interval);
   if (!r) return null;
@@ -86,27 +69,16 @@ export function buildCheckoutMetadata(productKey, interval) {
     product_key: r.product_key,
     interval: interval === 'year' ? 'year' : 'month',
     entitlement: r.entitlement,
-    credits_per_month: String(
-      r.credits_per_month == null ? '' : r.credits_per_month
-    ),
+    credits_per_month: String(r.credits_per_month),
     apps: (r.apps || []).join(','),
   };
 }
 
-/**
- * Guard: do not open Checkout if offer not fully configured.
- * @param {string} productKey
- * @param {'month'|'year'} [interval]
- */
 export function assertOfferReadyForCheckout(productKey, interval) {
   const r = resolveOffer(productKey, interval);
-  if (!r) {
-    throw new Error('Unknown product_key: ' + productKey);
-  }
+  if (!r) throw new Error('Unknown product_key: ' + productKey);
   if (!r.ready_for_checkout) {
-    throw new Error(
-      'Offer not ready for checkout: ' + r.blockers.join(', ')
-    );
+    throw new Error('Offer not ready: ' + (r.blockers.join(', ') || 'missing_amount'));
   }
   return r;
 }

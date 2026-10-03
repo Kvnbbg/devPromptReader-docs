@@ -1,10 +1,11 @@
 # Checklist offres Stripe
 
-- [x] Prix créés dans Stripe (Premium an, Studio m/a, Train m/a)
-- [x] Premium mensuel 4,99 € existant
-- [ ] Décision crédits Premium (nombre ou 0)
-- [ ] Metadata sur chaque Price
+- [x] Prix créés dans Stripe
+- [x] Décision crédits Premium = **500 / mois**
+- [x] Studio / Train = accès seul (0 crédit)
+- [x] Modules limits + wallet + payment-button
+- [ ] Metadata sur chaque Price dans Stripe Dashboard
+- [ ] Endpoint `POST /api/create-checkout-session`
 - [ ] Webhook grant idempotent
-- [ ] Boutons reliés seulement si `ready_for_checkout`
-- [ ] Pages catalogue / Pro / Starter / famille vérifiées
+- [ ] Boutons branchés sur pages catalogue
 - [ ] Log Drive URSSAF (optionnel)

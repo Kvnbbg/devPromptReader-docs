@@ -1,9 +1,8 @@
-# MANIFEST v2.5.0
+# MANIFEST v2.6.0
 
-| Entitlements | Role |
-|--------------|------|
-| entitlements-resolve.js | product_key → droits / crédits |
-| entitlements-grant-dry.js | plan de grant webhook (dry) |
-| data/stripe-entitlements.json | source prix EUR |
-
-Boutons Checkout **non** branchés tant que Premium crédits non tranchés.
+| Credits / pay | Role |
+|---------------|------|
+| credits-limits.js | 500 Premium / caps |
+| credits-wallet.js | grant spend balance |
+| payment-button.js | Checkout button |
+| entitlements-resolve.js | ready (Premium 500) |
