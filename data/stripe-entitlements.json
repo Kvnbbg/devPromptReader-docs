@@ -1,0 +1,46 @@
+{
+  "currency": "eur",
+  "offers": [
+    {
+      "product_key": "premium",
+      "label": "Premium",
+      "intervals": {
+        "month": { "amount_eur": 4.99, "note": "already in Stripe" },
+        "year": { "amount_eur": 39.99, "note": "created" }
+      },
+      "entitlement": "premium",
+      "credits_per_month": null,
+      "apps": [],
+      "status": "pending_owner_decision_on_credits"
+    },
+    {
+      "product_key": "studio_premium",
+      "label": "Studio Premium",
+      "intervals": {
+        "month": { "amount_eur": 7.99 },
+        "year": { "amount_eur": 59.99 }
+      },
+      "entitlement": "studio_premium",
+      "credits_per_month": 0,
+      "apps": ["beatmaker", "studio"],
+      "status": "recommended_access_only"
+    },
+    {
+      "product_key": "train_premium",
+      "label": "Train Adventures Premium",
+      "intervals": {
+        "month": { "amount_eur": 2.99 },
+        "year": { "amount_eur": 19.99 }
+      },
+      "entitlement": "train_premium",
+      "credits_per_month": 0,
+      "apps": ["train_adventures"],
+      "status": "recommended_access_only"
+    }
+  ],
+  "rules": {
+    "never_grant_without_webhook": true,
+    "idempotent_on_stripe_event_id": true,
+    "buttons_disabled_until_entitlement_configured": true
+  }
+}

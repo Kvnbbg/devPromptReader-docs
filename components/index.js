@@ -147,4 +147,12 @@ export {
 } from './recover-heal.js';
 export { openSanctuaryLite } from './sanctuary-opener.js';
 export { mountSanctuaryScreen } from './mount-sanctuary-screen.js';
+export {
+  configureEntitlements,
+  resolveOffer,
+  buildCheckoutMetadata,
+  assertOfferReadyForCheckout,
+  listProductKeys,
+} from './entitlements-resolve.js';
+export { planGrantFromPayment } from './entitlements-grant-dry.js';
 export { runSmokeAssert } from './smoke-assert.js';

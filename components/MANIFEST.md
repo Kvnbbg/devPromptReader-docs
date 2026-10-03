@@ -1,9 +1,9 @@
-# MANIFEST v2.4.0
+# MANIFEST v2.5.0
 
-| New | Role |
-|-----|------|
-| mount-sanctuary-screen.js | Single light DOM screen |
-| sanctuary-opener.js | Sync first paint |
-| sanctuary-mantra / ritual-todo / recover-heal | Data logic |
+| Entitlements | Role |
+|--------------|------|
+| entitlements-resolve.js | product_key → droits / crédits |
+| entitlements-grant-dry.js | plan de grant webhook (dry) |
+| data/stripe-entitlements.json | source prix EUR |
 
-Prior packs unchanged.
+Boutons Checkout **non** branchés tant que Premium crédits non tranchés.

@@ -1,13 +1,14 @@
 # devPromptReader Documentation
 
-## Sanctuaire écran unique (v2.4.0)
+## Stripe entitlements (v2.5.0)
+
+Matrice prix → droits documentée. Boutons **pas** reliés tant que Premium crédits non fixés.
 
 ```js
-import { mountSanctuaryScreen } from './components/index.js';
-mountSanctuaryScreen(document.getElementById('app'), { lang: 'fr' });
+import { resolveOffer, planGrantFromPayment } from './components/index.js';
 ```
 
-Symbiose OK — additive, no compile.
+→ [docs/19-Stripe-Entitlements.md](docs/19-Stripe-Entitlements.md)
 
 ---
 

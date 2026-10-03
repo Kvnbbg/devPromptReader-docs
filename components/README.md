@@ -1,10 +1,24 @@
-# Sanctuary screen
+# Entitlements (no compile)
 
 ```js
-import { mountSanctuaryScreen } from './components/index.js';
+import {
+  resolveOffer,
+  assertOfferReadyForCheckout,
+  planGrantFromPayment,
+  configureEntitlements,
+} from './components/index.js';
 
-const ui = mountSanctuaryScreen(document.getElementById('app'), { lang: 'fr' });
-// ui.refresh() · ui.destroy()
+// Après décision owner : crédits Premium = 500 / mois
+configureEntitlements({
+  premium: {
+    product_key: 'premium',
+    entitlement: 'premium',
+    credits_per_month: 500,
+    apps: [],
+    amounts: { month: 4.99, year: 39.99 },
+  },
+});
+
+assertOfferReadyForCheckout('studio_premium', 'month');
+planGrantFromPayment({ product_key: 'train_premium', interval: 'year' });
 ```
-
-First paint: opener + mantra + rituals only. Recover loads on button.
