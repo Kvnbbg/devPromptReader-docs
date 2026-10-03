@@ -189,4 +189,8 @@ export {
   verifyBezoutExample,
   DIVISION_BY_ZERO_REPO,
 } from './bezout.js';
+export {
+  solveLinearDiophantine,
+  DIOPHANTINE_EXAMPLES,
+} from './diophantine.js';
 export { runSmokeAssert } from './smoke-assert.js';

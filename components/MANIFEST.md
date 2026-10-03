@@ -1,8 +1,9 @@
-# MANIFEST v2.7.0
+# MANIFEST v2.7.1
 
 | Math | Role |
 |------|------|
-| bezout.js | egcd, inverse mod, safeDivInt |
-| data/bezout-examples.json | real numbers |
+| bezout.js | egcd, modInverse, safeDivInt |
+| **diophantine.js** | nx + my = c |
+| data/bezout-examples.json | fixtures |
 
-Link: https://github.com/kvnbbg/Division-by-Zero
+Division-by-Zero: https://github.com/kvnbbg/Division-by-Zero

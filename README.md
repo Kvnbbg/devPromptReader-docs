@@ -1,13 +1,14 @@
 # devPromptReader Documentation
 
-## Bézout (v2.7.0)
+## Math (v2.7.1)
+
+Bézout + Diophantine + safeDivInt · [Division-by-Zero](https://github.com/kvnbbg/Division-by-Zero)
 
 ```js
-import { egcd, safeDivInt, BEZOUT_EXAMPLES } from './components/index.js';
-egcd(30, 12); // { gcd: 6, s: 1, t: -2 }
+import { solveLinearDiophantine, egcd } from './components/index.js';
 ```
 
-→ [docs/22-Bezout-Simple.md](docs/22-Bezout-Simple.md) · [Division-by-Zero](https://github.com/kvnbbg/Division-by-Zero)
+Symbiose OK.
 
 ---
 

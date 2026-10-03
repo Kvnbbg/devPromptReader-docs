@@ -1,19 +1,13 @@
-# Checkout + webhook (pure JS)
+# Math modules
 
 ```js
 import {
-  planCheckoutSession,
-  planWebhookGrant,
-  mountPaymentButton,
+  egcd,
+  solveLinearDiophantine,
+  safeDivInt,
 } from './components/index.js';
 
-// Server:
-const plan = planCheckoutSession({
-  productKey: 'premium',
-  interval: 'month',
-  successUrl: 'https://www.techandstream.com/pay/success',
-  cancelUrl: 'https://www.techandstream.com/pay/cancel',
-  priceMap: { premium: { month: 'price_xxx', year: 'price_yyy' } },
-});
-// if (plan.ok) stripe.checkout.sessions.create(plan.sessionParams)
+egcd(30, 12);
+solveLinearDiophantine(30, 12, 6);
+safeDivInt(10, 0); // { ok: false, error: 'division_by_zero' }
 ```
